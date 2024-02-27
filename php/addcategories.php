@@ -58,5 +58,5 @@ if(isset($_POST['submit'])) {
 ?> 
 
 <?php
-include('../include/bootstrap/footer.php');
+// include('../include/bootstrap/foot.php')
 ?>

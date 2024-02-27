@@ -17,12 +17,6 @@
 </head>
 <body>
 
-    <!-- Page content -->
-    <div class="container">
-        <h1>Content of Your Website</h1>
-        <p>This is the main content area of your website.</p>
-    </div>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
