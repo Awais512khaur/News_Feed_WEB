@@ -38,7 +38,7 @@ $page='category';
       <tr scope="row">
         <td><?php echo $row['ID']; ?></td>
         <td><?php echo $row['Category']; ?></td>
-        <td><?php echo $row['Description']; ?></td>
+        <td><?php echo substr ($row['Description'], 0,20); ?> ...</td>
         <td><a href="edit.php?edit=<?php echo $row['ID'];?>" class="badge badge-info">UPDATE</a></td>
         <td><a href="delete.php?del=<?php echo $row['ID'];?>"  class="badge badge-danger">DELETE</a></td>
       </tr>

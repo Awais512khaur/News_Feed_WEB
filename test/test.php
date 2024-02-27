@@ -115,33 +115,12 @@ form .text h3 a:hover{
     <link rel="stylesheet" href="style.css">
    </head>
 <body>
-  <div class="wrapper">
-    <h2>Registration</h2>
-    <form action="#">
-      <div class="input-box">
-        <input type="text" placeholder="Enter your name"  name="name" >
-      </div>
-      <div class="input-box">
-        <input type="text" placeholder="Enter your email"  name="email" >
-      </div>
-      <div class="input-box">
-        <input type="password" placeholder="Create password"  name="pass" >
-      </div>
-      <div class="input-box">
-        <input type="password" placeholder="Confirm password"  name="" >
-      </div>
-      <div class="policy">
-        <input type="checkbox">
-        <h3>I accept all terms & condition</h3>
-      </div>
-      <div class="input-box button">
-        <input type="Submit" value="Register Now" name="submit" >
-      </div>
-      <div class="text">
-        <h3>Already have an account? <a href="#">Login now</a></h3>
-      </div>
-    </form>
-  </div>
+<a href="#" data-toggle="tooltip" title="This is a tooltip">
+    <i class="fa fa-info-circle"></i> <!-- Replace with your icon element -->
+</a>
+
+<!-- Ensure Bootstrap is included in your project -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 </body>
@@ -168,3 +147,5 @@ if(isset($_POST['submit'])) {
     }
 }
 ?>
+
+

@@ -13,6 +13,8 @@ include('../include/bootstrap/nav.php');
   <link href="../style/categories.css" type="text/css" rel="stylesheet" >
     <title>Categories</title>
 </head>
+<style>
+</style>
 <form action="addcategories.php" name="categoryform" method="post" onsubmit="return validateForm()" style="height: 432px;" >
     <h2>Add Category</h2>
     <hr>
@@ -24,6 +26,12 @@ include('../include/bootstrap/nav.php');
     </div>
     <button type="submit" name="submit">Add Category</button>
 </form>
+</body>
+<script>
+     function validateForm() {
+        return false;
+    }
+</script>
 <script src="../JS/validation.js" >
 </script>
 <?php
@@ -31,24 +39,24 @@ include('../db/connection.php');
 if(isset($_POST['submit'])) {
     $Category = $_POST['category'];
     $Description = $_POST['description'];
-    $query=mysqli_query($conn, "insert into category(Category,Description)values('$Category','$Description')");
-    // $sql = "INSERT INTO category (category, description) VALUES ('$Category', '$Description')";
-    // if ($conn->query($sql) === TRUE) {
-    //     echo '<script>alert("Category Added Successfully");</script>';
-    // } else {
-    //     echo "Error: " . $sql . "<br>" . $conn->error;
-    //     echo '<span style="color:red;">Failed Try Again</span>';
-    // }
-    if($query)
+    $check = mysqli_query($conn, "SELECT * FROM category WHERE Category = '$Category'");
+    if(mysqli_num_rows($check) > 0) {
+        echo '<script>alert("Category already exists");</script>';
+        exit();
+    }
+    $query = mysqli_query($conn, "INSERT INTO category (Category, Description) VALUES ('$Category', '$Description')");
+    if($query) 
     {
         echo '<script>alert("Category Added Successfully");</script>';
-    }
+    } 
     else
     {
-        echo '<script>alert("Failed Try again");</script>'; 
+        echo '<script>alert("Failed to add category");</script>'; 
     }
-}
-?>
+    echo '<script>event.preventDefault();</script>';
+} 
+?> 
+
 <?php
 include('../include/bootstrap/footer.php');
 ?>

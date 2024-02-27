@@ -60,7 +60,7 @@ if ($result->num_rows > 0) {
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="../style/admin_dash.css">
   </head>
-  <body>
+  <body >
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
     <?php foreach ($data as $item): ?><a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><?php echo $item; ?></a> <?php endforeach; ?>
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">

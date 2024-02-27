@@ -12,4 +12,5 @@ function validateForm() {
         errormsg.textContent = ''; 
         return true;
     }
+    return false;
 }

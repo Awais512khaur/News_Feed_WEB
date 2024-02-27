@@ -1,10 +1,12 @@
 form
 {
+    z-index: 2;
     margin-top: 16%;
     margin-left: 45%;
 }
 form
 {
+    z-index: 2;
     margin-top: 130px;
     height: 390px;
     text-align: center;
