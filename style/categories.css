@@ -95,3 +95,8 @@ button {
    button:hover::before {
     width: 100%;
    }
+table
+{
+    margin-top: 9rem;
+    margin-left: 19rem;
+}
