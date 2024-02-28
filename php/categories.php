@@ -7,18 +7,16 @@
 //   header('location:admin.php');
 // }
 include('../include/bootstrap/nav.php');
-$page='category';
+$page='categories';
 ?>
 <head>
     <link href="../style/categories.css" type="text/css" rel="stylesheet" >
     <link href="../style/table.css" type="text/css" rel="stylesheet" > 
     <title>Categories</title>
 </head>
-<div class="bt1">
-<a href="addcategories.php" ><input class="btn" type="button" value="Add Category">Add Category</input></a>
-  </div>
   <div>
-    <table class="table table-bordered" >
+  <h1 style="margin-left: 45rem;margin-top: 9%;" >Categories</h1>
+    <table class="table table-bordered"  style="margin-top: 40px;" >
     <thead class="thead-dark">
     <tr>
       <th scope="col">ID</th>

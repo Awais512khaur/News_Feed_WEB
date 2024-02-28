@@ -1,0 +1,38 @@
+form
+{
+    z-index: 2;
+    margin-top: 16%;
+    margin-left: 45%;
+}
+form
+{
+    z-index: 2;
+    margin-top: 130px;
+    height: 38rem;
+    text-align: center;
+    width: 50%;
+    margin-left: 34%;
+    border-radius: 45px;
+    background: #e0e0e0;
+    box-shadow:  21px 21px 33px #bababa, -21px -21px 33px #ffffff;
+}
+h2
+{
+    padding-top: 36px;
+}
+.btn
+{
+    width: 124px;
+    margin-top: 37%;
+    margin-left: 567%;
+}
+.btn:hover
+{
+    text-decoration: underline;
+    color: blue;
+}
+.login
+{
+    flex-direction: column;
+    display: flex;
+}

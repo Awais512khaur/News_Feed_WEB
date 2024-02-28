@@ -85,24 +85,25 @@ if ($result->num_rows > 0) {
               Dashboard <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="logout.php">
-              <span data-feather="file"></span>
-              Orders
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-              Products
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " <?php $page='admin_dash'; if($page=='categories'){echo 'active';} ?>  href="../php/categories.php">
-              <span data-feather="users"></span>
-              Categories
-            </a>
-          </li>
+          <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          News
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="../php/news.php">View News</a>
+          <a class="dropdown-item" href="../php/addnews.php">Add News</a>
+          <a class="dropdown-item" href="../php/internatioal.php">International News</a>
+        </div>
+      </li>
+          <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="../php/categories.php">View Categories</a>
+          <a class="dropdown-item" href="../php/addcategories.php">Add Categories</a>
+        </div>
+      </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="bar-chart-2"></span>

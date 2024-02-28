@@ -41,12 +41,12 @@ while($row = mysqli_fetch_array($query)) {
 var label = document.getElementById('myLabel');
 var submitButton = document.getElementById('alert');
 
-submitButton.addEventListener('click', function() {
-    alert('Category updated Successfully');
-});
-submitButton.addEventListener('click', function() {
-    window.location.href = 'categories.php';
-});
+// submitButton.addEventListener('click', function() {
+//     // alert('Category updated Successfully');
+// });
+// submitButton.addEventListener('click', function() {
+//     window.location.href = 'categories.php';
+// });
 
 
 </script>
@@ -64,6 +64,8 @@ if(isset($_POST["submit"]))
     $query1=mysqli_query($conn,"update category set category='$category', description='$description' where id='$id'");
     if($query1)
     {
+        echo "<script>alert('Category updated successfully');</script>";
+        echo "<script>window.location='http://localhost/News_Feed_WEB/php/categories.php'</script>";
     }
     else
     {
