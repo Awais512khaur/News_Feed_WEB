@@ -1,7 +1,7 @@
  <?php  
 // session_start();
 // session_unset();
-// header('location:admin.php');
+// header('location:admin_dash.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

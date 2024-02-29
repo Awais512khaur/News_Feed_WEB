@@ -1,5 +1,5 @@
 <?php
-//session_start();
+// session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@
 <form action="admin.php" method="post" >
     <h2>Admin Login</h2>
     <div class="login">
-    <input type="email" name="email" class="input" id="email"  placeholder="Enter your email">
+    <input type="text" name="email" class="input" id="email"  placeholder="Enter User Name">
     <input type="password" name="password" class="input"  id="pwd" placeholder="Enter your password">
     </div>
     <button type="submit" name="submit"  value="login" > LOG IN</button>
@@ -33,12 +33,12 @@ if (isset($_POST['submit']))
   $email=$_POST['email'];
   $password=$_POST['password'];
 
-  $query= mysqli_query($conn, "select * from admin_login where email='$email' and password = '$password' ");
+  $query= mysqli_query($conn, "select * from admin_login where name='$email' and password = '$password' ");
   if ($query)
   {
     if(mysqli_num_rows($query)>0){
         $_SESSION['email']= $email;
-         header('location:admin_dash.php');
+         header('location:news.php');
     }
     else
     {

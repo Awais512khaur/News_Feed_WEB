@@ -6,16 +6,17 @@
 // {
 //   header('location:admin.php');
 // }
-include('../include/bootstrap/nav.php');
-$page='categories';
+include('../include/bootstrap/nav.php');?>
+<?php 
+
+?>
 ?>
 <head>
     <link href="../style/categories.css" type="text/css" rel="stylesheet" >
     <link href="../style/table.css" type="text/css" rel="stylesheet" > 
-    <title>Categories</title>
+    <title>Breaking News</title>
     <style>
-       
-        td
+     td
         {
             width: 20rem;
         }
@@ -27,6 +28,7 @@ $page='categories';
   </div>
   <div>
   <h1 style="margin-left: 45rem;margin-top: 5%;" >Breaking News</h1>
+ 
     <table class="table table-bordered" style="margin-left: 16rem;width: 78rem;margin-top: 40px;">
     <thead class="thead-dark">
     <tr>
@@ -37,13 +39,23 @@ $page='categories';
       <th scope="col">Date</th>
       <th scope="col">category</th>
       <th scope="col">Address</th>
+      <th scope="col">Uploaded by</th>
       <th scope="col">Update</th>
       <th scope="col">Delete</th> 
       
     </tr>
       <?php
-      include('../db/connection.php');
-      $query = mysqli_query($conn, "select * from news");
+      // include('../db/connection.php');
+      // $page = $_GET[ ' page '];
+      // if($page == ''|| $page=="1")
+      // {
+      //   $page1 =0;
+      // }
+      // else{
+      //   $page1 = ($page * 3)-3;
+
+      // }
+      $query = mysqli_query($conn, "select * from news  ");
       while($row= mysqli_fetch_array($query))
       {
       
@@ -56,11 +68,27 @@ $page='categories';
         <td><?php echo date("F jS, y" , strtotime($row['date']))?></td>
         <td><?php echo $row['category']?></td>
         <td><?php echo $row['Address']?></td>
+        <td><?php echo $row['Uploaded_by']?></td>
         <td><a class="badge badge-info" href="update-news.php?edit=<?php echo $row['ID']?>">Update News</a></td>
-        <td><a class="badge badge-danger" href="update-news.php?del=<?php echo $row['ID']?>">Delete News</a></td>
+        <td><a class="badge badge-danger" href="newsdelete.php?del=<?php echo $row['ID']?>">Delete News</a></td>
      </tr>
      <?php } ?>
     </table>
+    <table>
+    <ul class="pagination">
+    <!-- <label><?php echo $count ?></label>
+    <?php 
+    //  $sql = mysqli_query($conn, "select * from news");
+    //  $count = mysqli_num_rows($sql);
+    //  $a=$count/3;
+    //  $a = ceil($a);
+    //  for ($i= 0; $i<$a; $i++)
+    //  {
+      ?>
+        <li class="page-items" ><a href="news.php?pahe=<?php echo $i; ?>" class="page-link" ><?php echo $i ?></a></li>
+     <?php // } ?> -->
+    </ul>
+     </table>
   </div>
 <?php
 include('../include/bootstrap/footer.php');

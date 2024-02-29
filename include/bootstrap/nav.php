@@ -8,7 +8,7 @@ $result = $conn->query($sql);
 $data = array();
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        $data[] = $row['Email'];
+        $data[] = $row['Name'];
     }
 } else {
     echo "0 results";
@@ -105,9 +105,9 @@ if ($result->num_rows > 0) {
         </div>
       </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../php/index.php">
               <span data-feather="bar-chart-2"></span>
-              Reports
+              Blog
             </a>
           </li>
           <li class="nav-item">

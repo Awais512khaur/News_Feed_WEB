@@ -56,6 +56,7 @@ h1
     margin-right: 10px;
   }
   .bn31 {
+    cursor: pointer;
     margin-left: 43rem;
     background-image: linear-gradient(to right, #006175 0%, #00a950 100%);
     border-radius: 40px;
