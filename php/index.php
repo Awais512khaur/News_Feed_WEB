@@ -14,8 +14,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
 <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -196,8 +194,8 @@
 
   <div class="nav-scroller py-1 mb-3 border-bottom">
     <nav class="nav nav-underline justify-content-between">
-      <a class="nav-item nav-link link-body-emphasis active" href="admin.php">Home</a>
-      <a class="nav-item nav-link link-body-emphasis" href="./user/login.php">Register</a>
+      <a class="nav-item nav-link link-body-emphasis active" href="index.php">Home</a>
+      <a class="nav-item nav-link link-body-emphasis" href="./user/login.php">Add News</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">Technology</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">Design</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">Culture</a>
@@ -207,7 +205,7 @@
       <a class="nav-item nav-link link-body-emphasis" href="#">Science</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">Health</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">Style</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+      <a class="nav-item nav-link link-body-emphasis" href="admin.php">News Info </a>
     </nav>
   </div>
 </div>
