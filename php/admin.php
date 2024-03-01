@@ -25,7 +25,6 @@
 </form>
 </body>
 </html>
-
 <?php
 include('../db/connection.php');
 if (isset($_POST['submit']))
@@ -37,7 +36,6 @@ if (isset($_POST['submit']))
   if ($query)
   {
     if(mysqli_num_rows($query)>0){
-        $_SESSION['email']= $email;
          header('location:news.php');
     }
     else
