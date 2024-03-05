@@ -4,6 +4,6 @@
 👀 I’m passionate web developer
 🌱 I’m Angular js
 💞️ I’m working in drupak
-📫 muhammadawais034849514352gmail.com
+📫 muhammadawais034849514352@gmail.com
 😄 Awais
 **
