@@ -1,20 +1,24 @@
-
-<?PHP
-
-?>
 <?php
 include('../../include/bootstrap/customer_nav.php');
 ?>
 <?php
 include('../../db/connection.php');
 ?>
-
- <h1 style="    margin-left: 45rem;margin-top: -52%;" >.</h1>
- <div class="alert alert-info" role="alert">
-                    <marquee style="    font-size: 3rem;" > Today's News !</marquee>
-                    </div>
+<head>
+  <style>
+    a
+    {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+ <h6 style="    margin-left: 45rem;margin-top: -52%;" >.</h6>
+ <div class="alert alert-info" role="alert" style="margin-top: -30%;" >
+    <marquee style="font-size: 3rem;" > Today's News !</marquee>
+    </div>
  <table class="table table-bordered" style="margin-left: 32rem;width: 78rem;margin-top: 40px;">
- <thead class="thead-dark">
+ <thead class="thead-dark" >
  <tr>
    <th scope="col">ID</th>
    <th scope="col">Title</th>
@@ -26,17 +30,7 @@ include('../../db/connection.php');
    <th scope="col">Uploaded by</th>
  </tr>
    <?php
-   // include('../db/connection.php');
-   // $page = $_GET[ ' page '];
-   // if($page == ''|| $page=="1")
-   // {
-   //   $page1 =0;
-   // }
-   // else{
-   //   $page1 = ($page * 3)-3;
-
-   // }
-   $query = mysqli_query($conn, "select * from news  ");
+   $query = mysqli_query($conn, "SELECT * FROM news ");
    while($row= mysqli_fetch_array($query))
    {
    
@@ -53,19 +47,7 @@ include('../../db/connection.php');
   </tr>
   <?php } ?>
  </table>
- <table>
- <ul class="pagination">
- <!-- <label><?php echo $count ?></label>
- <?php 
- //  $sql = mysqli_query($conn, "select * from news");
- //  $count = mysqli_num_rows($sql);
- //  $a=$count/3;
- //  $a = ceil($a);
- //  for ($i= 0; $i<$a; $i++)
- //  {
-   ?>
-     <li class="page-items" ><a href="news.php?pahe=<?php echo $i; ?>" class="page-link" ><?php echo $i ?></a></li>
-  <?php // } ?> -->
- </ul>
-  </table>
+
+</div>
+
 </div>

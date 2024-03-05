@@ -131,16 +131,17 @@ if(isset($_POST['submit'])) {
     $tmp_image = $_FILES['image']['tmp_name'];
     $description = $_POST['description'];
     $date = $_POST['date'];
-    $category = $_POST['category']; // Added the name attribute to the select element
-    $address = $_POST['address']; // Assuming this comes from your form
-    $uploaded = $_POST['uploaded']; // Assuming this comes from your form
-    move_uploaded_file($tmp_image, "../../images/$image"); // Changed $images to $image
+    $category = $_POST['category'];
+    $address = $_POST['address']; 
+    $uploaded = $_POST['uploaded']; 
+    move_uploaded_file($tmp_image, "../../images/$image"); 
     $query = "INSERT INTO news (title, image, description, date, category, Address, Uploaded_by) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, 'sssssss', $title, $image, $description, $date, $category, $address, $uploaded); // Added $address and $uploaded
     $result = mysqli_stmt_execute($stmt);
     if($result) {
         echo '<script>alert("News Added Successfully");</script>';
+        
     } else {
         echo '<script>alert("Failed to add News");</script>'; 
     }

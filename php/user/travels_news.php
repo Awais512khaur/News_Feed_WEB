@@ -179,8 +179,8 @@
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
       </div>
-      <div class="col-4 text-center" >
-        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">KNN (KhAUR News Networks)</a>
+      <div class="col-4 text-center">
+        <h2>Travels News</h2>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
         <a class="link-secondary" href="#" aria-label="Search">
@@ -189,33 +189,14 @@
       </div>
     </div>
   </header>
-  <div class="nav-scroller py-1 mb-3 border-bottom">
-    <nav class="nav nav-underline justify-content-between">
-      <a class="nav-item nav-link link-body-emphasis" href="index.php">Home</a>
-      <a class="nav-item nav-link link-body-emphasis" href="././user/login.php">Add News</a>
-      <a class="nav-item nav-link link-body-emphasis" href="././user/technology_news.php">Technology</a>
-      <a class="nav-item nav-link link-body-emphasis" href="././user/culture_news.php">Culture</a>
-      <a class="nav-item nav-link link-body-emphasis" href="././user/business_news.php">Business</a>
-      <a class="nav-item nav-link link-body-emphasis" href="././user/politics_news.php">Politics</a>
-      <a class="nav-item nav-link link-body-emphasis" href="././user/entertainment_news.php">Entertainment</a>
-      <a class="nav-item nav-link link-body-emphasis" href="././user/fashion_news.php">Fashion</a>
-      <a class="nav-item nav-link link-body-emphasis" href="././user/lifestyle_news.php">Lifestyle</a>
-      <a class="nav-item nav-link link-body-emphasis" href="././user/travels_news.php">Travels</a>
-      <a class="nav-item nav-link link-body-emphasis" href="../../php/admin.php">News Info </a>
-    </nav>
-  </div>
-</div>
-</div>
+
+ <?php 
+ include('blog_nav.php');
+ ?>
 
 <main class="container">
-  <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
-    <div class="col-lg-6 px-0" style="width: 100%;" >
-      <h1 class="display-4 fst-italic">KNN (Khaur News Network)</h1>
-      <p class="lead my-3">Founder of khanur welfare socity: Haji Gulab Khan Niaz. Operating uneder the banner of Khaur welfare society </p>
-    </div>
-  </div>
   <?php 
-include('../db/connection.php');
+include('../../db/connection.php');
 $query = mysqli_query($conn, "SELECT * FROM news");
 if(mysqli_num_rows($query) > 0) {
     ?>
@@ -233,10 +214,10 @@ if(mysqli_num_rows($query) > 0) {
                                     <strong class="d-inline-block mb-2 text-primary-emphasis"><?php echo $row['ID']; ?></strong>
                                     <h3 class="mb-0"><?php echo $row['title']; ?></h3>
                                     <div class="mb-1 text-body-secondary"><?php echo date("F jS, y" , strtotime($row['date']))?></div>
-                                    <p class="card-text mb-auto"><?php echo  substr( $row['description'], 0, 40)?></p> 
+                                    <p class="card-text mb-auto"><?php echo $row['description']; ?></p> 
                                 </div>
                                 <div class="col-auto d-none d-lg-block">
-                                    <img  src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" class="bd-placeholder-img" width="200" height="250" alt="Thumbnail"> 
+                                    <img  src="../../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" class="bd-placeholder-img" width="200" height="250" alt="Thumbnail"> 
                                 </div>
                             </div>
                         </div>
@@ -284,25 +265,38 @@ if(mysqli_num_rows($query) > 0) {
 
   <div class="row g-5">
     <div class="col-md-8">
+        <?php    $query1 = mysqli_query($conn, "SELECT COUNT(*) AS num_rows FROM news WHERE category = 'Travels'");
+         if ($query) {
+             $result = mysqli_fetch_assoc($query1);
+             if ($result !== null && isset($result['num_rows'])) {
+                 $num_items = $result['num_rows'];
+                 echo "<label>Number of News available: $num_items</label>";
+             } else {
+                 echo "No items available.";
+             }
+            }?>
+            <hr>
       <h3 class="pb-4 mb-4 fst-italic border-bottom">
         KNN (Khaur News Nwtworks)
       </h3>
+      
        <?php 
-       include('../db/connection.php');
+       include('../../db/connection.php');
         //  $query = mysqli_query($conn, "SELECT * FROM news WHERE DATE(date) = CURDATE() OR DATE(date) = DATE_SUB(CURDATE(), INTERVAL 2 DAY);");
-         $query = mysqli_query($conn, "select * from news  ");
+         $query = mysqli_query($conn, "select * from news WHERE category = 'Travels' ");
          while($row= mysqli_fetch_array($query))
          {
          
          ?>
+         
         <tr>
           <h6>News Id: <span> </span> <?php echo $row['ID']?></h6>
         </tr>
-    
       <article class="blog-post">
+      
         <h2 class="display-5 link-body-emphasis mb-1"><?php echo $row['title']?></h2>
         <p class="blog-post-meta"><?php echo date("F jS, y" , strtotime($row['date']))?><span> </span><span style="color:skyblue" ><?php echo $row['Uploaded_by']?></span></p>
-        <p><img style="width: 100%;" src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" ></p>
+        <p><img style="width: 100%;" src="../../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" ></p>
         <hr>
         <p></p>
         <h2><?php echo $row['category']?></h2>
@@ -345,7 +339,7 @@ if(mysqli_num_rows($query) > 0) {
         </div>
         <h4 class="fst-italic">Recent News</h4>
         <?php 
-       include('../db/connection.php');
+       include('../../db/connection.php');
          $query = mysqli_query($conn, "SELECT * FROM news WHERE DATE(date) = CURDATE();");
          
          while($row= mysqli_fetch_array($query))
@@ -357,7 +351,7 @@ if(mysqli_num_rows($query) > 0) {
           <ul class="list-unstyled">
             <li>
               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-               <img style="width:100% ; height:96px " src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly"  >
+               <img style="width:100% ; height:96px " src="../../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly"  >
                 <div class="col-lg-8">
                   <h6 class="mb-0"><?php echo $row['title']?></h6>
                   <small class="text-body-secondary"><?php echo date("F jS, y" , strtotime($row['date']))?></small>

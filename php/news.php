@@ -45,16 +45,6 @@ include('../include/bootstrap/nav.php');?>
       
     </tr>
       <?php
-      // include('../db/connection.php');
-      // $page = $_GET[ ' page '];
-      // if($page == ''|| $page=="1")
-      // {
-      //   $page1 =0;
-      // }
-      // else{
-      //   $page1 = ($page * 3)-3;
-
-      // }
       $query = mysqli_query($conn, "select * from news  ");
       while($row= mysqli_fetch_array($query))
       {
@@ -76,17 +66,6 @@ include('../include/bootstrap/nav.php');?>
     </table>
     <table>
     <ul class="pagination">
-    <!-- <label><?php echo $count ?></label>
-    <?php 
-    //  $sql = mysqli_query($conn, "select * from news");
-    //  $count = mysqli_num_rows($sql);
-    //  $a=$count/3;
-    //  $a = ceil($a);
-    //  for ($i= 0; $i<$a; $i++)
-    //  {
-      ?>
-        <li class="page-items" ><a href="news.php?pahe=<?php echo $i; ?>" class="page-link" ><?php echo $i ?></a></li>
-     <?php // } ?> -->
     </ul>
      </table>
   </div>

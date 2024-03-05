@@ -741,10 +741,15 @@ header {
                     <ul>
                         <li ><a href="../../php/user/user_dash.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
                         <li><a href="../../php/user/customer_news.php"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Add News</span></a></li>
-                        <li><a href="../../php/user/todaynews.php"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Todays News</span></a></li>
+                        <li><a href="../../php/user/todaynews.php"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">All News</span></a></li>
+                        <li><a href="../../php/internatioal.php"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">International News</span></a></li>
                         <li><a href="../../php/index.php"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Blogs</span></a></li>
-                        <li><a href="../../php/user/login.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span>Log out</a></li>
-                        <li><a href="../../php/user/login.php"><i class="fa " aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
+                        <li><a href="../../php/index.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span>Log out</a></li>
+                        <li><a href="#"><i class="fa " aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
+                        <li><a href="#"><i  aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
+                        <li><a href="#"><i  aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
+                        <li><a href="#"><i  aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
+                        <li><a href="#"><i  aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
                         <li><a href="#"><i  aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
                         <li><a href="#"><i  aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
                         <!-- <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Users</span></a></li>
@@ -783,12 +788,8 @@ header {
                 </div>
             </div>
         </div>
-
     </div>
-
-
-
-    <!-- Modal -->
+ <!-- Modal -->
     <div id="add_project" class="modal fade" role="dialog">
         <div class="modal-dialog">
         </div>
