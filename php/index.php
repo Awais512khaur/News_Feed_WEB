@@ -349,7 +349,7 @@ if(mysqli_num_rows($query) > 0) {
           
           <ul class="list-unstyled">
             <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="readmore.php?edit=<?php echo $row['ID']?>">
                <img style="width:100% ; height:96px " src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly"  >
                 <div class="col-lg-8">
                   <h6 class="mb-0"><?php echo $row['title']?></h6>
