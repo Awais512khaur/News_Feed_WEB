@@ -18,7 +18,7 @@ include('../include/bootstrap/nav.php');
 <style>
 </style>  
 
-<form action="addnews.php" name="categoryform" id="newsform" enctype="multipart/form-data" method="post" onsubmit="return validateForm()" style="height: 44rem;" >
+<form action="addnews.php" name="categoryform" id="newsform" enctype="multipart/form-data" method="post" onsubmit="return validateForm()" style="height: 48rem;" >
 
     <h2>ADD NEWS</h2>
     <hr>
@@ -29,6 +29,7 @@ include('../include/bootstrap/nav.php');
     <div class="login">
         <input class="input"  type="text" name="title"  id="title" placeholder="Title"> 
         <input  class="input" type="file" name="image"  id="image" placeholder="Image">
+        <input  class="input" type="file" name="subimage"  id="subimage" placeholder="Sub Image">
         <textarea class="input" name="description"  id="description" placeholder="Description"></textarea>
         <input class="input" type="date" name="date"  id="date" placeholder="Date">
         <div>
@@ -64,15 +65,18 @@ if(isset($_POST['submit'])) {
     $title = $_POST['title'];
     $image = $_FILES['image']['name'];
     $tmp_image = $_FILES['image']['tmp_name'];
+    $subimage = $_FILES['subimage']['name'];
+    $tmp_subimage = $_FILES['subimage']['tmp_name']; 
     $description = $_POST['description'];
     $date = $_POST['date'];
     $category = $_POST['category'];
     $thumbnail = $_POST['thumbnail'];
     $uploaded = $_POST['uploaded'];
     move_uploaded_file($tmp_image, "../images/$image");
-    $query = "INSERT INTO news (title, image, description, date, category, Address, Uploaded_by) VALUES (?, ?, ?, ?, ?, ?,?)";
+    move_uploaded_file($tmp_subimage, "../sub_images/$subimage"); 
+    $query = "INSERT INTO news (title, image, subimage, description, date, category, Address, Uploaded_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, 'sssssss', $title, $image, $description, $date, $category, $thumbnail, $uploaded);
+    mysqli_stmt_bind_param($stmt, 'ssssssss', $title, $image, $subimage, $description, $date, $category, $thumbnail, $uploaded);
     $result = mysqli_stmt_execute($stmt);
     if($result) {
         echo '<script>alert("News Added Successfully");</script>';
@@ -82,4 +86,5 @@ if(isset($_POST['submit'])) {
     mysqli_stmt_close($stmt);
 }
 ?>
+
 

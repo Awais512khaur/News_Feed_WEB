@@ -35,6 +35,7 @@ include('../include/bootstrap/nav.php');?>
       <th scope="col">ID</th>
       <th scope="col">Title</th>
       <th scope="col">Image</th>
+      <th scope="col">SubImages</th>
       <th scope="col">Description</th>
       <th scope="col">Date</th>
       <th scope="col">category</th>
@@ -54,6 +55,7 @@ include('../include/bootstrap/nav.php');?>
         <td><?php echo $row['ID']?></td>
         <td><?php echo $row['title']?></td>
         <td><img style="width: 10rem;" src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" ></td>
+        <td><img style="width: 10rem;" src="../sub_images/<?php echo $row['subimage']; ?>"  alt="No Image to dispaly" ></td>
         <td><?php echo  substr( $row['description'], 0, 20)?>...</td>
         <td><?php echo date("F jS, y" , strtotime($row['date']))?></td>
         <td><?php echo $row['category']?></td>

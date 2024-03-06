@@ -19,6 +19,7 @@ while ($row = mysqli_fetch_array($query))
     $id = $row['ID'];
     $title = $row['title'];
     $image = $row['image'];
+    $subimage = $row['subimage'];
     $description = $row['description'];
     $date = $row['date'];
     $category = $row['category'];
@@ -35,19 +36,22 @@ while ($row = mysqli_fetch_array($query))
 <style>
 </style>  
 
-<form action="update-news.php" name="categoryform" id="newsform" enctype="multipart/form-data" method="post" onsubmit="return validateForm()" style="height: 45rem;width:51%" >
+<form action="update-news.php" name="categoryform" id="newsform" enctype="multipart/form-data" method="post" onsubmit="return validateForm()" style="height: 55rem;width:51%" >
 
     <h2>UPDATE NEWS</h2>
     <hr>
     <div class="alert alert-info" role="alert">
     *All fields are mandatory
 </div>
-    <!-- <label id="error"  name="error"   >*All fields are mandatory</label> -->
     <div class="login">
         <input class="input"  type="text" name="title"  id="title" placeholder="Title" value="<?php echo $title ?>" > 
         <input  class="input" type="file" name="image"  id="image" placeholder="Image" value="<?php echo $image ?>"  >
         <div style="display: flex; " >
         <img src="../images/<?php echo $image ?>" style="    margin-left: 73px; width: 160px;" >
+        </div>
+        <input  class="input" type="file" name="image"  id="image" placeholder="Image" value="<?php echo $image ?>"  >
+        <div style="display: flex; " >
+        <img src="../sub_images/<?php echo $subimage ?>" style="    margin-left: 73px; width: 160px;" >
         </div>
         <textarea class="input" name="description"  id="description" placeholder="Description"  ><?php echo $description ?></textarea>
         <input class="input" type="date" name="date"  id="date" placeholder="Date" value="<?php echo $date ?>" >

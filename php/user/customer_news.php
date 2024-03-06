@@ -40,6 +40,12 @@ include('../../include/bootstrap/customer_nav.php');
                     <label class="form-label" for="lastName">Image</label>
                   </div>
                 </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="file" id="subimage" name="subimage" class="form-control form-control-lg" />
+                    <label class="form-label" for="lastName">Sub Image</label>
+                  </div>
+                </div>
               </div>
               <div class="row">
                 <div class="col-md-6 mb-4 d-flex align-items-center">
@@ -125,27 +131,35 @@ include('../../include/bootstrap/customer_nav.php');
 </html>
 <?php
 include('../../db/connection.php');
+
 if(isset($_POST['submit'])) {
     $title = $_POST['title'];
     $image = $_FILES['image']['name'];
     $tmp_image = $_FILES['image']['tmp_name'];
+    $subimage = $_FILES['subimage']['name'];
+    $tmp_image1 = $_FILES['image']['tmp_name'];
     $description = $_POST['description'];
     $date = $_POST['date'];
     $category = $_POST['category'];
     $address = $_POST['address']; 
     $uploaded = $_POST['uploaded']; 
     move_uploaded_file($tmp_image, "../../images/$image"); 
-    $query = "INSERT INTO news (title, image, description, date, category, Address, Uploaded_by) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    move_uploaded_file($tmp_image1, "../../images/sub_images/$image"); 
+
+    $query = "INSERT INTO news (title, image, subimage, description, date, category, Address, Uploaded_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, 'sssssss', $title, $image, $description, $date, $category, $address, $uploaded); // Added $address and $uploaded
-    $result = mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_param($stmt, 'ssssssss', $title, $image, $subimage, $description, $date, $category, $address, $uploaded); 
+    
+    $result = mysqli_stmt_execute($stmt); 
+
     if($result) {
         echo '<script>alert("News Added Successfully");</script>';
-        
     } else {
         echo '<script>alert("Failed to add News");</script>'; 
     }
+    
     mysqli_stmt_close($stmt);
 }
 ?>
+
 

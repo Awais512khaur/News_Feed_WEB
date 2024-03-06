@@ -1,4 +1,20 @@
+<?PHP
+include('../db/connection.php');
+$id = $_GET['edit'];
+$query = mysqli_query($conn, "select *from news where id = '$id' ");
+while ($row = mysqli_fetch_array($query))
+{
+    $id = $row['ID'];
+    $title = $row['title'];
+    $image = $row['image'];
+    $subimage = $row['subimage'];
+    $description = $row['description'];
+    $date = $row['date'];
+    $category = $row['category'];
+    $address = $row['Address'];
 
+}
+?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
@@ -205,112 +221,34 @@
     </nav>
   </div>
 </div>
-</div>
-<main class="container">
-  <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
-    <div class="col-lg-6 px-0" style="width: 100%;" >
-      <h1 class="display-4 fst-italic">KNN (Khaur News Network)</h1>
-      <p class="lead my-3">Founder of khanur welfare socity: Baba G Gulab Khan Niaz. Operating under the banner of Khaur welfare society </p>
-    </div>
-  </div>
-  <?php 
+
+<article class="blog-post" style="margin-left: 8rem;" >
+<?PHP
 include('../db/connection.php');
-$query = mysqli_query($conn, "SELECT * FROM news");
-if(mysqli_num_rows($query) > 0) {
+$id = $_GET['edit'];
+$query = mysqli_query($conn, "select *from news where id = '$id' ");
+while ($row = mysqli_fetch_array($query))
+{
     ?>
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <?php
-            $first = true; 
-            while($row = mysqli_fetch_array($query)) {
-                ?>
-                <div class="carousel-item <?php if($first) { echo 'active'; $first = false; } ?>">
-                    <div class="row mb-2">
-                        <div class="col-md-6">
-                            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                <div class="col p-4 d-flex flex-column position-static">
-                                    <strong class="d-inline-block mb-2 text-primary-emphasis"><?php echo $row['ID']; ?></strong>
-                                    <h3 class="mb-0"><?php echo $row['title']; ?></h3>
-                                    <div class="mb-1 text-body-secondary"><?php echo date("F jS, y" , strtotime($row['date']))?></div>
-                                    <p class="card-text mb-auto"><?php echo  substr( $row['description'], 0, 40)?></p> 
-                                </div>
-                                <div class="col-auto d-none d-lg-block">
-                                    <img  src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" class="bd-placeholder-img" width="200" height="250" alt="Thumbnail"> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php
-            }
-            ?>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    <?php
-} else {
-    echo "No data found";
+    <h1><?php echo $row['ID'] ?></h1>
+    <h2 class="display-5 link-body-emphasis mb-1"><?php echo $row['title'] ?></h2>
+    <p class="blog-post-meta"><?php echo  date("F jS, y" , strtotime($row['date']))?><span> </span><span style="color:skyblue" ><?php echo $row['Uploaded_by']?></span></p>
+    <p><img style="width: 50%;" src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" ></p>
+    <h2 class="display-5 link-body-emphasis mb-1"><?php echo $row['category'] ?></h2>
+    <p><img style="width: 20%;" src="../sub_images/<?php echo $row['subimage']; ?>"  alt="No Image to dispaly" ></p>
+    <p><?php echo  ( $row['description'])?></p>
+    <h6>Address:</h6>
+        <blockquote class="blockquote">
+          <h5><?php echo $row['Address']?></h5>
+        </blockquote>
+        <h6>Uploded by:</h6>
+        <h5><?php echo $row['Uploaded_by']?></h5>
+        
+<?php
 }
 ?>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
-  <div class="row g-5">
-    <div class="col-md-8">
-      <h3 class="pb-4 mb-4 fst-italic border-bottom">
-        KNN (Khaur News Nwtworks)
-      </h3>
-       <?php 
-       include('../db/connection.php');
-        //  $query = mysqli_query($conn, "SELECT * FROM news WHERE DATE(date) = CURDATE() OR DATE(date) = DATE_SUB(CURDATE(), INTERVAL 2 DAY);");
-         $query = mysqli_query($conn, "select * from news  ");
-         while($row= mysqli_fetch_array($query))
-         {
-         
-         ?>
-        <tr>
-        </tr>
-    
-      <article class="blog-post">
-        <h2 class="display-5 link-body-emphasis mb-1"><?php echo $row['title']?></h2>
-        <p class="blog-post-meta"><?php echo date("F jS, y" , strtotime($row['date']))?><span> </span><span style="color:skyblue" ><?php echo $row['Uploaded_by']?></span></p>
-        <p><img style="width: 100%;" src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" ></p>
-        <hr>
-        <p></p>
-        <h2><?php echo $row['category']?></h2>
-        <p><?php echo  substr( $row['description'], 0, 20)?></p>
-        <a  href="readmore.php?edit=<?php echo $row['ID']?>">Read More</a><br><br>
-        <hr>
-      <?php } 
-       ?>
-         <ul>
-        <div class="alert alert-danger" role="alert">
+   
+        <div class="alert alert-danger" role="alert" style="margin-right: 54rem;" >
           Cautions!/انتباہات
         </div>
           <li>Spreading false news is a crime under the law</li>
@@ -329,71 +267,4 @@ if(mysqli_num_rows($query) > 0) {
           <li><a href="https://awaiskhaur.netlify.app/" >Muhammad Awais</a></li>
         </ol>
     </div>
-
-    <div class="col-md-4">
-      <div class="position-sticky" style="top: 2rem;">
-        <div class="p-4 mb-3 bg-body-tertiary rounded">
-          <h4 class="fst-italic">About</h4>
-          <p class="mb-0">KNN (Khaur News Nwtwork) was developed using PHP and bootstrap Created and Managed by: Muhammad Awais (Awais khaur) </p>
-        </div>
-        <h4 class="fst-italic">Recent News</h4>
-        <?php 
-       include('../db/connection.php');
-         $query = mysqli_query($conn, "SELECT * FROM news WHERE DATE(date) = CURDATE();");
-         
-         while($row= mysqli_fetch_array($query))
-         {
-         
-         ?>
-        <div>
-          
-          <ul class="list-unstyled">
-            <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-               <img style="width:100% ; height:96px " src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly"  >
-                <div class="col-lg-8">
-                  <h6 class="mb-0"><?php echo $row['title']?></h6>
-                  <small class="text-body-secondary"><?php echo date("F jS, y" , strtotime($row['date']))?></small>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <?php } 
-       ?>
-        <div class="p-4">
-          <h4 class="fst-italic">Address:</h4>
-          <ol class="list-unstyled">
-            <h6>Khaur bazar Nawab Plaza basement</h6>
-            <h6>City: Khaur city</h6>
-            <h6>Tehsel: Pindigheb</h6>
-            <h6>District: Attock</h6>
-            <h6>Postal code: 43381</h6>
-          </ol>
-        </div>
-        <div class="p-4">
-          <h4 class="fst-italic">Contact us:</h4>
-          <ol class="list-unstyled">
-            <li><a href="https://github.com/Awais512khaur">GitHub</a></li>
-            <li><a href="https://awaiskhaur.netlify.app/">Muhammad Awais</a></li>
-            <li><a href="https://www.facebook.com/share/Kci71t7DFtb7UYzU/?mibextid=sCpJLy">Facebook</a></li>
-            <li><a href="https://www.instagram.com/awais_khaur?igsh=bHg0eWlmOGp2eXMx&utm_source=qr">Instagram</a></li>
-          </ol>
-        </div>
-       
-      </div>
-    </div>
-  </div>
-
-</main>
-
-<footer class="py-5 text-center text-body-secondary bg-body-tertiary">
-© [2024] KNN (Khaur News Networks). All Rights Reserved.
-
-  <p class="mb-0">
-    <a href="#">Back to top</a>
-  </p>
-</footer>
-<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    </body>
-</html>
+</article>
