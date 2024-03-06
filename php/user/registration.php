@@ -30,6 +30,9 @@
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
                 <form class="mx-1 mx-md-4" id="myForm">
+                <div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+</div>
 <div class="d-flex flex-row align-items-center mb-4">
   <i class="fas fa-user fa-lg me-3 fa-fw"></i>
   <div class="form-outline flex-fill mb-0">
@@ -38,7 +41,6 @@
     <div class="error-message" id="nameError"></div>
   </div>
 </div>
-
 <div class="d-flex flex-row align-items-center mb-4">
   <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
   <div class="form-outline flex-fill mb-0">
@@ -111,16 +113,16 @@ function validateForm()
 </script>
 </html>
 <?php
-include('../../db/connection.php')
+include('../../db/connection.php');
 ?>
 <?php
 if(isset($_POST['submit'])) {
   $name = $_POST['name'];
   $email = $_POST['email'];
   $password = $_POST['password'];
-  $query = "INSERT INTO registration (name, email, password) VALUES (?, ?, ?)";
+  $query = "INSERT INTO registration (name, email, password) VALUES (?, ?, ?, ?)";
   $stmt = mysqli_prepare($conn, $query);
-  mysqli_stmt_bind_param($stmt, 'sss', $name, $email, $password);
+  mysqli_stmt_bind_param($stmt, 'ssss', $image, $name, $email, $password);
   $result = mysqli_stmt_execute($stmt);
   if($result) {
       echo '<script>alert("Account created successfuly Now login .");</script>';
