@@ -222,7 +222,7 @@ while ($row = mysqli_fetch_array($query))
   </div>
 </div>
 
-<article class="blog-post" style="margin-left: 8rem;" >
+<article class="blog-post" style="margin-left: 8rem;"  >
 <?PHP
 include('../db/connection.php');
 $id = $_GET['edit'];
@@ -231,8 +231,8 @@ while ($row = mysqli_fetch_array($query))
 {
     ?>
     <h1><?php echo $row['ID'] ?></h1>
-    <h2 class="display-5 link-body-emphasis mb-1"><?php echo $row['title'] ?></h2>
-    <p class="blog-post-meta"><?php echo  date("F jS, y" , strtotime($row['date']))?><span> </span><span style="color:skyblue" ><?php echo $row['Uploaded_by']?></span></p>
+    <h2 style="font-family: robo;" class="display-5 link-body-emphasis mb-1"><?php echo $row['title'] ?></h2>
+    <p style="font-family: robolight;" class="blog-post-meta"><?php echo  date("F jS, y" , strtotime($row['date']))?><span> </span><span style="color:skyblue" ><?php echo $row['Uploaded_by']?></span></p>
     <p><img style="width: 50%;" src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" ></p>
     <h2 class="display-5 link-body-emphasis mb-1"><?php echo $row['category'] ?></h2>
     <p><img style="width: 20%;" src="../sub_images/<?php echo $row['subimage']; ?>"  alt="No Image to dispaly" ></p>
