@@ -1,0 +1,13 @@
+@font-face
+{
+    font-family: robo;
+    src: url(../include/Fonts/Roboto-Black.ttf);
+}
+@font-face {
+    font-family: roboitlac;
+    src: url(../include/Fonts/Roboto-BlackItalic.ttf);
+}
+@font-face {
+    font-family: robolight;
+    src: url(../include/Fonts/Roboto-Light.ttf);
+}

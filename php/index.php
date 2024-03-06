@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
+    <link rel="stylesheet" href="../style/font.css"  type="text/css" >
     <title>Today's News</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
@@ -180,7 +181,7 @@
       <div class="col-4 pt-1">
       </div>
       <div class="col-4 text-center" >
-        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">KNN (KhAUR News Networks)</a>
+        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#" style="font-family: robo;" >KNN (KhAUR News Networks)</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
         <a class="link-secondary" href="#" aria-label="Search">
@@ -209,8 +210,8 @@
 <main class="container">
   <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
     <div class="col-lg-6 px-0" style="width: 100%;" >
-      <h1 class="display-4 fst-italic">KNN (Khaur News Network)</h1>
-      <p class="lead my-3">Founder of khanur welfare socity: Baba G Gulab Khan Niaz. Operating under the banner of Khaur welfare society </p>
+      <h1 class="display-4 fst-italic" style="font-family: roboitlac;" >KNN (Khaur News Network)</h1>
+      <p class="lead my-3" style="font-family: robolight;" >Founder of khanur welfare socity: Baba G Gulab Khan Niaz. Operating under the banner of Khaur welfare society </p>
     </div>
   </div>
   <?php 
@@ -218,7 +219,7 @@ include('../db/connection.php');
 $query = mysqli_query($conn, "SELECT * FROM news");
 if(mysqli_num_rows($query) > 0) {
     ?>
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="font-family: robo;" >
         <div class="carousel-inner">
             <?php
             $first = true; 
@@ -230,7 +231,7 @@ if(mysqli_num_rows($query) > 0) {
                             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                                 <div class="col p-4 d-flex flex-column position-static">
                                     <strong class="d-inline-block mb-2 text-primary-emphasis"><?php echo $row['ID']; ?></strong>
-                                    <h3 class="mb-0"><?php echo $row['title']; ?></h3>
+                                    <h3  style="font-family: robo;" class="mb-0"><?php echo $row['title']; ?></h3>
                                     <div class="mb-1 text-body-secondary"><?php echo date("F jS, y" , strtotime($row['date']))?></div>
                                     <p class="card-text mb-auto"><?php echo  substr( $row['description'], 0, 40)?></p> 
                                 </div>
@@ -297,7 +298,7 @@ if(mysqli_num_rows($query) > 0) {
         <tr>
         </tr>
     
-      <article class="blog-post">
+      <article class="blog-post" style="font-family: robo;" >
         <h2 class="display-5 link-body-emphasis mb-1"><?php echo $row['title']?></h2>
         <p class="blog-post-meta"><?php echo date("F jS, y" , strtotime($row['date']))?><span> </span><span style="color:skyblue" ><?php echo $row['Uploaded_by']?></span></p>
         <p><img style="width: 100%;" src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" ></p>
