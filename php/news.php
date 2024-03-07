@@ -62,15 +62,21 @@ include('../include/bootstrap/nav.php');?>
         <td><?php echo $row['Address']?></td>
         <td><?php echo $row['Uploaded_by']?></td>
         <td><a class="badge badge-info" href="update-news.php?edit=<?php echo $row['ID']?>">Update News</a></td>
-        <td><a class="badge badge-danger" href="newsdelete.php?del=<?php echo $row['ID']?>">Delete News</a></td>
+        <td><a class="badge badge-danger" href="#" onclick="confirmDelete(<?php echo $row['ID']; ?>)">Delete News</a></td>
      </tr>
      <?php } ?>
     </table>
     <table>
-    <ul class="pagination">
-    </ul>
      </table>
+   
   </div>
+  <script>
+    function confirmDelete(newsId) {
+    if (confirm("Are you sure you want to delete this news?")) {
+        window.location.href = "newsdelete.php?del=" + newsId;
+    }
+}
+  </script>
 <?php
 include('../include/bootstrap/footer.php');
 ?>

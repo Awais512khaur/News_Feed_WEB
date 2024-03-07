@@ -36,7 +36,7 @@ if (isset($_POST['submit']))
   if ($query)
   {
     if(mysqli_num_rows($query)>0){
-         header('location:news.php');
+         header('location:admin_dash.php');
     }
     else
     {
