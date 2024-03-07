@@ -38,11 +38,18 @@ $page='categories';
         <td><?php echo $row['Category']; ?></td>
         <td><?php echo substr ($row['Description'], 0,20); ?> ...</td>
         <td><a href="edit.php?edit=<?php echo $row['ID'];?>" class="badge badge-info">UPDATE</a></td>
-        <td><a href="delete.php?del=<?php echo $row['ID'];?>"  class="badge badge-danger">DELETE</a></td>
+        <td><a class="badge badge-danger" href="#" onclick="confirmDelete(<?php echo $row['ID']; ?>)">Delete News</a></td>
       </tr>
       <?php  } ?>
     </table>
   </div>
+  <script>
+    function confirmDelete(newsId) {
+    if (confirm("Are you sure you want to delete this category?")) {
+        window.location.href = "delete.php?del=" + newsId;
+    }
+}
+  </script>
 <?php
 include('../include/bootstrap/footer.php');
 ?>

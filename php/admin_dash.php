@@ -58,6 +58,7 @@ if ($query2) {
   <div class="card-body">
   <p class="card-text">All caetgories in KNN (Khaur News Network) :</p>
     <h5 class="card-title"><?php echo $num_items1; ?></h5>
+    <br>
     <a href="categories.php"  class="btn btn-info" >View</a> 
   </div>
 </div>
@@ -66,6 +67,7 @@ if ($query2) {
   <div class="card-body">
   <p class="card-text">No users in KNN (Khaur News Networks) :</p>
     <h5 class="card-title"><?php echo $num_items2; ?></h5>
+    <br>
     <a href="user_info.php" class="btn btn-success" >View</a> 
   </div>
 </div>    
@@ -76,7 +78,6 @@ if ($query2) {
 <?php 
        include('../db/connection.php');
          $query = mysqli_query($conn, "SELECT * FROM news WHERE DATE(date) = CURDATE();");
-         
          while($row= mysqli_fetch_array($query))
          {
           

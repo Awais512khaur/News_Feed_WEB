@@ -243,8 +243,7 @@ while ($row = mysqli_fetch_array($query))
           <h5><?php echo $row['Address']?></h5>
         </blockquote>
         <h6>Uploded by:</h6>
-        <h5><?php echo $row['Uploaded_by']?></h5>
-        
+        <h5><?php echo $row['Uploaded_by']?></h5>   
 <?php
 }
 ?><br>

@@ -214,8 +214,13 @@
       <p class="lead my-3" style="font-family: robolight;" >Founder of khanur welfare socity: Baba G Gulab Khan Niaz. Operating under the banner of Khaur welfare society </p>
     </div>
   </div>
-  <?php 
-include('../db/connection.php');
+  <?php
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'news';
+$conn = mysqli_connect($host, $username, $password, $database);
+
 $query = mysqli_query($conn, "SELECT * FROM news");
 if(mysqli_num_rows($query) > 0) {
     ?>
