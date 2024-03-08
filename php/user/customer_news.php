@@ -12,7 +12,6 @@
 include('../../include/bootstrap/customer_nav.php');
 ?>
 <body>
-   
     <form method="post"  action="customer_news.php" id="customernews" enctype="multipart/form-data" style="margin-top: -79rem;" >
     <h1 >Add News</h1>
     <section class="vh-100 gradient-custom">
@@ -23,10 +22,9 @@ include('../../include/bootstrap/customer_nav.php');
           <div class="card-body p-4 p-md-5">
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add News</h3>
             <div class="alert alert-info" role="alert">
-                    <marquee> All fields are required !</marquee>
-                    </div>
+            <marquee> All fields are required !</marquee>
+            </div>
             <form>
-
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
@@ -83,17 +81,7 @@ include('../../include/bootstrap/customer_nav.php');
 
                   <select class="select form-control-lg" name="category" >
                   <option value="1" disabled>--Select Category--</option>
-                    <?php 
-                        include('../../db/connection.php');
-                        $query = mysqli_query($conn, "select * from category");
-                        while ($row = mysqli_fetch_array($query))
-                        {
-                            $category=$row['Category'];
-                            ?>
-                            <option><?php echo $category?></option>
-                        <?php
-                        }
-                        ?>
+                   <?php include('../../sql/categories_fetch.sql'); ?>
                   </select>
                   <label class="form-label select-label">Category</label>
 
@@ -131,35 +119,7 @@ include('../../include/bootstrap/customer_nav.php');
 </html>
 <?php
 include('../../db/connection.php');
-
-if(isset($_POST['submit'])) {
-    $title = $_POST['title'];
-    $image = $_FILES['image']['name'];
-    $tmp_image = $_FILES['image']['tmp_name'];
-    $subimage = $_FILES['subimage']['name'];
-    $tmp_image1 = $_FILES['image']['tmp_name'];
-    $description = $_POST['description'];
-    $date = $_POST['date'];
-    $category = $_POST['category'];
-    $address = $_POST['address']; 
-    $uploaded = $_POST['uploaded']; 
-    move_uploaded_file($tmp_image, "../../images/$image"); 
-    move_uploaded_file($tmp_image1, "../../images/sub_images/$image"); 
-
-    $query = "INSERT INTO news (title, image, subimage, description, date, category, Address, Uploaded_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, 'ssssssss', $title, $image, $subimage, $description, $date, $category, $address, $uploaded); 
-    
-    $result = mysqli_stmt_execute($stmt); 
-
-    if($result) {
-        echo '<script>alert("News Added Successfully");</script>';
-    } else {
-        echo '<script>alert("Failed to add News");</script>'; 
-    }
-    
-    mysqli_stmt_close($stmt);
-}
+include('../../sql/news_insert.sql');
 ?>
 
 

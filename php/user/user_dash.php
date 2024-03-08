@@ -5,10 +5,10 @@ include('../../include/bootstrap/customer_nav.php');
     <link href="../../style/user_dash.css" rel="stylesheet" >
 </head>
 
-<div style="margin-top: -112rem;margin-left: 16%;" >
-<marquee style="font-size: 3rem;"><b>Welcome to KNN (Khaur News Networks)</b></marquee>
+<div style="margin-top: -125rem;margin-left: 16%;" >
+<marquee style="font-size: 2rem;"><b>Welcome to KNN (Khaur News Networks)</b></marquee>
 <div style="margin-left: 35rem;" >
-<h4 class="fst-italic">Recent News</h4>
+<h3><b>Recent News</b></h3>
 <?php 
        include('../../db/connection.php');
          $query = mysqli_query($conn, "SELECT * FROM news WHERE DATE(date) = CURDATE();");
@@ -18,7 +18,7 @@ include('../../include/bootstrap/customer_nav.php');
           
          ?>
           <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly">
+            <img style="width: 20rem;" class="card-img-top" src="../../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly">
             <div class="card-body">
             <h5 class="card-title"><?php echo $row['title']?></h5>
             <small class="text-body-secondary"><?php echo date("F jS, y" , strtotime($row['date']))?></small><br>
