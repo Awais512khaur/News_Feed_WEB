@@ -16,14 +16,11 @@ if(isset($_POST['submit'])) {
     $query = "INSERT INTO news (title, image, subimage, description, date, category, Address, Uploaded_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, 'ssssssss', $title, $image, $subimage, $description, $date, $category, $address, $uploaded); 
-    
+    if($query)
+{
+    echo "<script>alert('News Added succesfully')</script>";
+}
     $result = mysqli_stmt_execute($stmt); 
-
-    if($result) {
-        echo '<script>alert("News Added Successfully");</script>';
-    } else {
-        echo '<script>alert("Failed to add News");</script>'; 
-    }
-    
     mysqli_stmt_close($stmt);
 }
+
