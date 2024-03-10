@@ -14,9 +14,11 @@ $page='categories';
     <link href="../style/table.css" type="text/css" rel="stylesheet" > 
     <title>Categories</title>
 </head>
+<button onclick="printCategory()" id="btn" style="margin-left: 25rem;" >Download Report</button>
   <div>
   <h1 style="margin-left: 45rem;margin-top: 9%;" >Categories</h1>
-    <table class="table table-bordered"  style="margin-top: 40px;" >
+ 
+    <table class="table table-bordered"  style="margin-top: 40px;" id="category" >
     <thead class="thead-dark">
     <tr>
       <th scope="col">ID</th>
@@ -24,7 +26,6 @@ $page='categories';
       <th scope="col">Description</th>
       <th scope="col">Update</th>
       <th scope="col">Delete</th>
-      
     </tr>
       <?php
       include('../db/connection.php');
@@ -43,6 +44,25 @@ $page='categories';
       <?php  } ?>
     </table>
   </div>
+  <script>
+function printCategory() {
+    var categoryTable = document.getElementById('category').outerHTML;
+    var tempDiv = document.createElement('div');
+    tempDiv.innerHTML = categoryTable;
+    var rows = tempDiv.querySelectorAll('tr');
+    rows.forEach(function(row) {
+        row.removeChild(row.lastElementChild);
+        row.removeChild(row.lastElementChild);
+    });
+    var tableHTML = tempDiv.innerHTML;
+    var printWindow = window.open('', '', 'height=400,width=800');
+    printWindow.document.write('<html><head><title>Category Report</title></head><body>');
+    printWindow.document.write('<h1>Category Report</h1>');
+    printWindow.document.write('<table border="1">' + tableHTML + '</table>');
+    printWindow.document.write('</body></html>');
+    printWindow.print();
+}
+</script>
   <script>
     function confirmDelete(newsId) {
     if (confirm("Are you sure you want to delete this category?")) {

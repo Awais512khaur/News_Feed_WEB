@@ -12,7 +12,6 @@ if(isset($_POST['submit'])) {
     $uploaded = $_POST['uploaded']; 
     move_uploaded_file($tmp_image, "../../images/$image"); 
     move_uploaded_file($tmp_image1, "../../images/sub_images/$image"); 
-
     $query = "INSERT INTO news (title, image, subimage, description, date, category, Address, Uploaded_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, 'ssssssss', $title, $image, $subimage, $description, $date, $category, $address, $uploaded); 

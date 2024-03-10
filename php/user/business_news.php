@@ -105,6 +105,7 @@
     </style> 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../style/News_home.css" rel="stylesheet">
   </head>
@@ -126,15 +127,6 @@
     </svg>
 
     <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-              id="bd-theme"
-              type="button"
-              aria-expanded="false"
-              data-bs-toggle="dropdown"
-              aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
       <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
         <li>
           <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
@@ -277,7 +269,7 @@ if(mysqli_num_rows($query) > 0) {
             }?>
             <hr>
       <h3 class="pb-4 mb-4 fst-italic border-bottom">
-        KNN (Khaur News Nwtworks)
+        KNN (Khaur News Networks)
       </h3>
       
        <?php 
@@ -335,7 +327,7 @@ if(mysqli_num_rows($query) > 0) {
       <div class="position-sticky" style="top: 2rem;">
         <div class="p-4 mb-3 bg-body-tertiary rounded">
           <h4 class="fst-italic">About</h4>
-          <p class="mb-0">KNN (Khaur News Nwtwork) was developed using PHP and bootstrap Created and Managed by: Muhammad Awais (Awais khaur) </p>
+          <p class="mb-0">KNN (Khaur News Network) was developed using PHP and bootstrap Created and Managed by: Muhammad Awais (Awais khaur) </p>
         </div>
         <h4 class="fst-italic">Recent News</h4>
         <?php 
