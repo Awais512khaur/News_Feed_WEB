@@ -350,13 +350,31 @@ while($row= mysqli_fetch_array($query))
 <?php } 
 ?>
 <div class="p-4">
-<h4 class="fst-italic">Address:</h4>
+<h4 class="fst-italic">Today's Sehr o Iftar Time:</h4>
 <ol class="list-unstyled">
-<h6>Khaur bazar Nawab Plaza basement</h6>
-<h6>City: Khaur city</h6>
-<h6>Tehsel: Pindigheb</h6>
-<h6>District: Attock</h6>
-<h6>Postal code: 43381</h6>
+<table class="table table-bordered" >
+    <thead  class="bg-primary" >
+    <tr  class="bg-primary" >
+      <th scope="col"  class="bg-primary" >ID</th>
+      <th scope="col"  class="bg-primary" >Date</th>
+      <th scope="col"  class="bg-primary" >Sehr</th>
+      <th scope="col"  class="bg-primary" >Iftar</th>  
+    </tr>
+      <?php
+      $query = mysqli_query($conn,  "SELECT * FROM ramaza WHERE DATE(date) = CURDATE();");
+      while($row= mysqli_fetch_array($query))
+      {
+      
+      ?>
+     <tr>
+        <td><?php echo $row['ID']?></td>
+        <td><?php echo $row['Date']?></td>
+        <td><?php echo $row['Sehr']?></td>
+        <td><?php echo $row['Iftar']?></td>
+     </tr>
+     <?php } ?>
+    </table>
+    <a class="btn btn-primary" id="ramzan" href="ramazan.php" role="button">Read more</a>
 </ol>
 </div>
 <div class="p-4">

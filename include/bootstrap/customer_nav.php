@@ -728,6 +728,8 @@ header {
 </head>
 <body>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <!-- Option 1: Include in HTML -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <body class="home">
     <div class="container-fluid display-table">
         <div class="row display-table-row">
@@ -742,10 +744,10 @@ header {
                         <li ><a href="../../php/user/user_dash.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
                         <li><a href="../../php/user/customer_news.php"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Add News</span></a></li>
                         <li><a href="../../php/user/todaynews.php"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">All News</span></a></li>
-                        <li><a href="../../php/internatioal.php"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">International News</span></a></li>
-                        <li><a href="../../php/index.php"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Blogs</span></a></li>
+                        <li><a href="../../php/internatioal.php"><i class="bi bi-globe" aria-hidden="true"></i><span class="hidden-xs hidden-sm">International News</span></a></li>
+                        <li><a href="../../php/index.php"><i class="bi bi-newspaper" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Blogs</span></a></li>
+                        <li><a href="../../php/user/weather.php"><i class="bi bi-cloud" aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span>Weather</a></li>
                         <li><a href="../../php/index.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span>Log out</a></li>
-                        <li><a href="#"><i class="fa " aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
                         <li><a href="#"><i  aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
                         <li><a href="#"><i  aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
                         <li><a href="#"><i  aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span></a></li>
