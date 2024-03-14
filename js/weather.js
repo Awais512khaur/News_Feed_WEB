@@ -23,23 +23,26 @@ async function checkweather(city)
     humidity.innerHTML = `${weatherdata.main.humidity}%`;
     wind.innerHTML = `${weatherdata.wind.speed} Km/H`;
 
-    switch(weatherdata.weather[0].main){
-        case 'cloud':
-            weatherimage.src = "../../weather_images/cloud.png";
+    switch (weatherdata.weather[0].main) {
+        case 'Clouds':
+            weatherimage.src = "../weather_images/cloud.png";
             break;
-            case 'clear':
-            weatherimage.src = "../../weather_images/clear.png";
+        case 'Clear':
+            weatherimage.src = "../weather_images/clear.png";
             break;
-            case 'mist':
-            weatherimage.src = "../../weather_images/mist.png";
+        case 'Mist':
+            weatherimage.src = "../weather_images/mist.png";
             break;
-            case 'rain':
-            weatherimage.src = "../../weather_images/rain.png";
+        case 'Rain':
+            weatherimage.src = "../weather_images/rain.png";
             break;
-            case 'snow':
-            weatherimage.src = "../../weather_images/snow.png";
+        case 'Snow':
+            weatherimage.src = "../weather_images/snow.png";
             break;
-        }
+        default:
+            weatherimage.src = "../weather_images/default.png"; 
+            break;
+    }
 }
 searchbtn.addEventListener('click',()=>
 {
