@@ -40,9 +40,10 @@ include('../include/bootstrap/nav.php');
             $query = mysqli_query($conn, "select * from category");
             while ($row = mysqli_fetch_array($query))
             {
+                $id=$row['ID'];
                 $category=$row['Category'];
                 ?>
-                <option><?php echo $category?></option>
+                <option><?php echo $id, $category ?></option>
             <?php
             }
             ?>

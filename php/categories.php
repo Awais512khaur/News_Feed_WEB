@@ -58,7 +58,7 @@ function printCategory() {
     var printWindow = window.open('', '', 'height=400,width=800');
     printWindow.document.write('<html><head><title>Category Report</title></head><body>');
     printWindow.document.write('<h1>Category Report</h1>');
-    printWindow.document.write('<table border="1">' + tableHTML + '</table>');
+    printWindow.document.write('<table border="1">'+' ' + tableHTML + '</table>');
     printWindow.document.write('</body></html>');
     printWindow.print();
 }
