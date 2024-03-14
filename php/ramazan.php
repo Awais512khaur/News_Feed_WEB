@@ -48,7 +48,7 @@
         var container = document.getElementById("container");
         setTimeout(function() {
             container.style.display = "none";
-        }, 1000); // 3000 milliseconds = 3 seconds
+        }, 1000);
     });
  </script>
 </body>

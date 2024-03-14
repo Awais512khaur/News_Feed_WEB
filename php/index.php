@@ -296,7 +296,7 @@ while($row= mysqli_fetch_array($query))
 <hr>
 <p></p>
 <h2><?php echo $row['category']?></h2>
-<p><?php echo  substr( $row['description'], 0, 20)?></p>
+<p><?php echo  substr( $row['description'], 0, 20)?>..</p>
 <a  href="readmore.php?edit=<?php echo $row['ID']?>">Read More</a><br><br>
 <hr>
 <?php } 
@@ -331,31 +331,47 @@ Cautions!/انتباہات
 <?php 
 include('../db/connection.php');
 $query = mysqli_query($conn, "SELECT * FROM news WHERE DATE(date) = CURDATE();");
-while($row= mysqli_fetch_array($query))
-{
+if(mysqli_num_rows($query) > 0) {
+    while($row = mysqli_fetch_array($query)) {
 ?>
 <div>
-<ul class="list-unstyled">
-<li>
-<a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="readmore.php?edit=<?php echo $row['ID']?>">
-<img style="width:100% ; height:96px " src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly"  >
-<div class="col-lg-8">
-<h6 class="mb-0"><?php echo $row['title']?></h6>
-<small class="text-body-secondary"><?php echo date("F jS, y" , strtotime($row['date']))?></small>
+    <ul class="list-unstyled">
+        <li>
+            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="readmore.php?edit=<?php echo $row['ID']?>">
+                <img style="width:100% ; height:96px " src="../images/<?php echo $row['image']; ?>"  alt="No Image to display"  >
+                <div class="col-lg-8">
+                    <h6 class="mb-0"><?php echo $row['title']?></h6>
+                    <small class="text-body-secondary"><?php echo date("F jS, y" , strtotime($row['date']))?></small>
+                </div>
+            </a>
+        </li>
+    </ul>
 </div>
-</a>
-</li>
-</ul>
-</div>
-<?php } 
-?>
+<?php 
+    }
+} else {?>
+  <div>
+    <ul class="list-unstyled">
+        <li>
+            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="readmore.php?edit=<?php echo $row['ID']?>">
+                <img style="width:100% ; height:96px " src="../images/default.webp"  alt="No Image to display"  >
+                <div class="col-lg-8">
+                    <h6 class="mb-0">No Recent News</h6>
+                    <?php $today_date = date("F jS, Y"); ?>
+                    <small class="text-body-secondary">Date:  <?php echo $today_date; ?></small>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>  
+<?php } ?>
 <div class="p-4">
 <h4 class="fst-italic">Today's Sehr o Iftar Time:</h4>
 <ol class="list-unstyled">
 <table class="table table-bordered" >
     <thead  class="bg-primary" >
     <tr  class="bg-primary" >
-      <th scope="col"  class="bg-primary" >ID</th>
+      <th scope="col"  class="bg-primary" >NO</th>
       <th scope="col"  class="bg-primary" >Date</th>
       <th scope="col"  class="bg-primary" >Sehr</th>
       <th scope="col"  class="bg-primary" >Iftar</th>  
@@ -367,8 +383,8 @@ while($row= mysqli_fetch_array($query))
       
       ?>
      <tr>
-        <td><?php echo $row['ID']?></td>
-        <td><?php echo $row['Date']?></td>
+        <td><?php echo $row['No']?></td>
+        <td><?php echo date("F jS, y" , strtotime($row['Date']))?></td>
         <td><?php echo $row['Sehr']?></td>
         <td><?php echo $row['Iftar']?></td>
      </tr>
