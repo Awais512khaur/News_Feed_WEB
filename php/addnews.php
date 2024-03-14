@@ -16,10 +16,8 @@ include('../include/bootstrap/nav.php');
     <title>Add News</title>
 </head>
 <style>
-</style>  
-
-<form action="addnews.php" name="categoryform" id="newsform" enctype="multipart/form-data" method="post" onsubmit="return validateForm()" style="height: 48rem;" >
-
+</style>
+<form action="addnews.php" name="categoryform" id="newsform" enctype="multipart/form-data" method="post" onsubmit="return validateForm()" style="height: 48rem;">
     <h2>ADD NEWS</h2>
     <hr>
     <div class="alert alert-info" role="alert">
@@ -61,7 +59,6 @@ include('../include/bootstrap/footer.php');
 ?>
 <?php
 include('../db/connection.php');
-
 if(isset($_POST['submit'])) {
     $title = $_POST['title'];
     $image = $_FILES['image']['name'];
