@@ -335,34 +335,34 @@ if(mysqli_num_rows($query) > 0) {
     while($row = mysqli_fetch_array($query)) {
 ?>
 <div>
-    <ul class="list-unstyled">
-        <li>
-            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="readmore.php?edit=<?php echo $row['ID']?>">
-                <img style="width:100% ; height:96px " src="../images/<?php echo $row['image']; ?>"  alt="No Image to display"  >
-                <div class="col-lg-8">
-                    <h6 class="mb-0"><?php echo $row['title']?></h6>
-                    <small class="text-body-secondary"><?php echo date("F jS, y" , strtotime($row['date']))?></small>
-                </div>
-            </a>
-        </li>
-    </ul>
+<ul class="list-unstyled">
+<li>
+<a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="readmore.php?edit=<?php echo $row['ID']?>">
+<img style="width:100% ; height:96px " src="../images/<?php echo $row['image']; ?>"  alt="No Image to display"  >
+<div class="col-lg-8">
+<h6 class="mb-0"><?php echo $row['title']?></h6>
+<small class="text-body-secondary"><?php echo date("F jS, y" , strtotime($row['date']))?></small>
+</div>
+</a>
+</li>
+</ul>
 </div>
 <?php 
-    }
+}
 } else {?>
-  <div>
-    <ul class="list-unstyled">
-        <li>
-            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="readmore.php?edit=<?php echo $row['ID']?>">
-                <img style="width:100% ; height:96px " src="../images/default.webp"  alt="No Image to display"  >
-                <div class="col-lg-8">
-                    <h6 class="mb-0">No Recent News</h6>
-                    <?php $today_date = date("F jS, Y"); ?>
-                    <small class="text-body-secondary">Date:  <?php echo $today_date; ?></small>
-                </div>
-            </a>
-        </li>
-    </ul>
+<div>
+<ul class="list-unstyled">
+<li>
+<a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="readmore.php?edit=<?php echo $row['ID']?>">
+<img style="width:100% ; height:96px " src="../images/default.webp"  alt="No Image to display"  >
+<div class="col-lg-8">
+<h6 class="mb-0">No Recent News</h6>
+<?php $today_date = date("F jS, Y"); ?>
+<small class="text-body-secondary">Date:  <?php echo $today_date; ?></small>
+</div>
+</a>
+</li>
+</ul>
 </div>  
 <?php } ?>
 <div class="p-4">
