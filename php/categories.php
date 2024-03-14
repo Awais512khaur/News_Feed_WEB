@@ -17,7 +17,6 @@ $page='categories';
 <button onclick="printCategory()" id="btn" style="margin-left: 25rem;" >Download Report</button>
   <div>
   <h1 style="margin-left: 45rem;margin-top: 9%;" >Categories</h1>
- 
     <table class="table table-bordered"  style="margin-top: 40px;" id="category" >
     <thead class="thead-dark">
     <tr>
@@ -32,7 +31,6 @@ $page='categories';
       $query = mysqli_query($conn, "select * from category");
       while($row= mysqli_fetch_array($query))
       {
-
       ?>
       <tr scope="row">
         <td><?php echo $row['ID']; ?></td>

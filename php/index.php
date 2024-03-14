@@ -302,7 +302,7 @@ while($row= mysqli_fetch_array($query))
 <?php } 
 ?>
 <ul>
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-danger" role="alert" style="margin-left: -35px;" >
 Cautions!/انتباہات
 </div>
 <li>Spreading false news is a crime under the law</li>
@@ -367,6 +367,7 @@ if(mysqli_num_rows($query) > 0) {
 <?php } ?>
 <div class="p-4">
 <h4 class="fst-italic">Today's Sehr o Iftar Time:</h4>
+<hr>
 <ol class="list-unstyled">
 <table class="table table-bordered" >
     <thead  class="bg-primary" >

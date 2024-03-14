@@ -120,18 +120,27 @@ if(isset($_POST['submit'])) {
   $name = $_POST['name'];
   $email = $_POST['email'];
   $password = $_POST['password'];
-  $query = "INSERT INTO registration (name, email, password) VALUES (?, ?, ?, ?)";
-  $stmt = mysqli_prepare($conn, $query);
-  mysqli_stmt_bind_param($stmt, 'ssss', $image, $name, $email, $password);
-  $result = mysqli_stmt_execute($stmt);
-  if($result) {
-      echo '<script>alert("Account created successfuly Now login .");</script>';
-      echo "<script>window.location='http://localhost/News_Feed_WEB/php/user/login.php';</script>";
-
+  $query_check_email = "SELECT COUNT(*) FROM registration WHERE email = ?";
+  $stmt_check_email = mysqli_prepare($conn, $query_check_email);
+  mysqli_stmt_bind_param($stmt_check_email, 's', $email);
+  mysqli_stmt_execute($stmt_check_email);
+  mysqli_stmt_bind_result($stmt_check_email, $email_count);
+  mysqli_stmt_fetch($stmt_check_email);
+  mysqli_stmt_close($stmt_check_email);
+  if($email_count > 0) {
+    echo '<script>alert("Email already exists. Please choose a different email.");</script>';
   } else {
-      echo '<script>alert("Failed Try again");</script>'; 
+    $query_insert = "INSERT INTO registration (name, email, password) VALUES (?, ?, ?)";
+    $stmt_insert = mysqli_prepare($conn, $query_insert);
+    mysqli_stmt_bind_param($stmt_insert, 'sss', $name, $email, $password);
+    $result_insert = mysqli_stmt_execute($stmt_insert);
+    mysqli_stmt_close($stmt_insert);
+    if($result_insert) {
+      echo '<script>alert("Account created successfully. Now login.");</script>';
+      echo "<script>window.location='http://localhost/News_Feed_WEB/php/user/login.php';</script>";
+    } else {
+      echo '<script>alert("Failed. Please try again.");</script>'; 
+    }
   }
-  mysqli_stmt_close($stmt);
 }
-?>
 ?>
