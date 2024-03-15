@@ -28,7 +28,8 @@ include('../include/bootstrap/nav.php');
 </form>
 </body>
 <script>
-     function validateForm() {
+     function validateForm()
+      {
         return false;
     }
 </script>
@@ -56,7 +57,6 @@ if(isset($_POST['submit'])) {
     echo '<script>event.preventDefault();</script>';
 } 
 ?> 
-
 <?php
 // include('../include/bootstrap/foot.php')
 ?>
