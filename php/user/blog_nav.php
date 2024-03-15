@@ -11,6 +11,7 @@
       <a class="nav-item nav-link link-body-emphasis" href="lifestyle_news.php">Lifestyle</a>
       <a class="nav-item nav-link link-body-emphasis" href="travels_news.php">Travels</a>
       <a class="nav-item nav-link link-body-emphasis" href="../../php/admin.php">News Info </a>
+      <a class="nav-item nav-link link-body-emphasis" href="../../php/admin.php">News Info </a>
     </nav>
   </div>
 </div>
