@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather</title>
-    <link rel="stylesheet" href="../../style/weather.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather</title>
+<link rel="stylesheet" href="../../style/weather.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-          <div class="searchbox">
-            <input type="text" placeholder="Enter your location" class="inputbox">
-            
-            <button class="fa-solid fa-magnifying-glass" id="searchbtn"></button>
-          </div>
+        <div class="searchbox">
+        <input type="text" placeholder="Enter your location" class="inputbox">
+        <button class="fa-solid fa-magnifying-glass" id="searchbtn"></button>
+        </div>
         </div>
         <div class="locationnotfound">
-            <H1>Sorry location not found</H1>
-            <img src="../../weather_images/404.png" alt="404 Error">
+        <H1>Sorry location not found</H1>
+        <img src="../../weather_images/404.png" alt="404 Error">
         </div>
  <div class="weatherbody">
   <img src="../../weather_images/cloud.png" alt="weather image" class="weatherimage">
