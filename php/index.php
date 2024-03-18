@@ -1,8 +1,6 @@
-
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
@@ -16,9 +14,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
 <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -125,9 +121,7 @@ display: block !important;
 <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
 </symbol>
 </svg>
-
 <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-
 <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
 <li>
 <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
@@ -152,8 +146,6 @@ Auto
 </li>
 </ul>
 </div>
-
-
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
 <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
 <circle cx="12" cy="12" r="10"/>
@@ -263,7 +255,6 @@ echo "No data found";
 <span class="visually-hidden">Next</span>
 </button>
 </div>
-
 </div>
 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" style="margin-top:29rem;">
 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -274,7 +265,6 @@ echo "No data found";
 <span class="visually-hidden">Next</span>
 </button>
 </div>
-
 <div class="row g-5">
 <div class="col-md-8">
 <h3 class="pb-4 mb-4 fst-italic border-bottom">
@@ -403,16 +393,12 @@ if(mysqli_num_rows($query) > 0) {
 <li><a href="https://www.instagram.com/awais_khaur?igsh=bHg0eWlmOGp2eXMx&utm_source=qr">Instagram</a></li>
 </ol>
 </div>
-
 </div>
 </div>
 </div>
-
 </main>
-
 <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
 © [2024] KNN (Khaur News Networks). All Rights Reserved.
-
 <p class="mb-0">
 <a href="#">Back to top</a>
 </p>
