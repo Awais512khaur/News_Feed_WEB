@@ -13,7 +13,7 @@
         <h1>International News</h1>
         <a class="bn31"  onclick="news()"  ><span class="bn31span">Latest News</span></a>
     </header>
-    <section id="newslist"   ></section>
+    <section id="newslist"></section>
     <script src="../JS/getnews.js" ></script>
 </body>
 </html>
