@@ -4,7 +4,6 @@ include('../../include/bootstrap/customer_nav.php');
 <head>
     <link href="../../style/user_dash.css" rel="stylesheet" >
 </head>
-
 <div style="margin-top: -125rem;margin-left: 16%;" >
 <marquee style="font-size: 2rem;margin-top:-1rem"><b>Welcome to KNN (Khaur News Networks)</b></marquee>
 <div style="margin-left: 35rem;" >
