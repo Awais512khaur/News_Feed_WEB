@@ -40,15 +40,6 @@ while($row = mysqli_fetch_array($query)) {
 <script>
 var label = document.getElementById('myLabel');
 var submitButton = document.getElementById('alert');
-
-// submitButton.addEventListener('click', function() {
-//     // alert('Category updated Successfully');
-// });
-// submitButton.addEventListener('click', function() {
-//     window.location.href = 'categories.php';
-// });
-
-
 </script>
 <script src="../JS/validation.js" >
 </script>

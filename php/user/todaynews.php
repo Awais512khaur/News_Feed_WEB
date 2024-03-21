@@ -20,15 +20,15 @@ include('../../db/connection.php');
  <table class="table table-bordered" style="margin-left: 32rem;width: 78rem;margin-top: 40px;">
  <thead class="thead-dark" >
  <tr>
-   <th scope="col">ID</th>
-   <th scope="col">Title</th>
-   <th scope="col">Image</th>
-   <th scope="col">Sub Image</th>
-   <th scope="col">Description</th>
-   <th scope="col">Date</th>
-   <th scope="col">category</th>
-   <th scope="col">Address</th>
-   <th scope="col">Uploaded by</th>
+   <th scope="col" style="color: white; background-color:#343a40;">ID</th>
+   <th scope="col" style="color: white; background-color:#343a40;" >Title</th>
+   <th scope="col" style="color: white; background-color:#343a40;" >Image</th>
+   <th scope="col" style="color: white; background-color:#343a40;" >Sub Image</th>
+   <th scope="col"style="color: white; background-color:#343a40;" >Description</th>
+   <th scope="col"style="color: white; background-color:#343a40;" >Date</th>
+   <th scope="col"style="color: white; background-color:#343a40;" >category</th>
+   <th scope="col"style="color: white; background-color:#343a40;" >Address</th>
+   <th scope="col"style="color: white; background-color:#343a40;" >Uploaded</th>
  </tr>
    <?php
    $query = mysqli_query($conn, "SELECT * FROM news ");
@@ -43,7 +43,27 @@ include('../../db/connection.php');
      <td><img style="width: 10rem;" src="../../sub_images/<?php echo $row['subimage']; ?>"  alt="No Image to dispaly" ></td>
      <td><?php echo  substr( $row['description'], 0, 20)?>...</td>
      <td><?php echo date("F jS, y" , strtotime($row['date']))?></td>
-     <td><?php echo $row['category']?></td>
+     <?php
+      $categoryQuery = "SELECT category.Category 
+                        FROM news_category 
+                        INNER JOIN category ON news_category.category_id = category.ID 
+                        WHERE news_category.news_id = " . $row['ID'];
+      $categoryResult = mysqli_query($conn, $categoryQuery);
+      if ($categoryResult) 
+      {
+          if (mysqli_num_rows($categoryResult) > 0) {
+              $categoryRow = mysqli_fetch_assoc($categoryResult);
+              $category_name = $categoryRow['Category'];
+              echo "<td>$category_name</td>";
+          } else 
+          {
+              echo "<td>No category found</td>";
+          }
+      } else 
+      {
+          echo "<td>Error: " . mysqli_error($conn) . "</td>";
+      }
+      ?>
      <td><?php echo $row['Address']?></td>
      <td><?php echo $row['Uploaded_by']?></td>
   </tr>

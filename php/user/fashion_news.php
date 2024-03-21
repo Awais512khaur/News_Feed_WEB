@@ -254,7 +254,7 @@ echo "No data found";
 
 <div class="row g-5">
 <div class="col-md-8">
-<?php    $query1 = mysqli_query($conn, "SELECT COUNT(*) AS num_rows FROM news WHERE category = 'Education'");
+<?php    $query1 = mysqli_query($conn, "SELECT COUNT(*) AS num_rows FROM news_category WHERE category_id = '58'");
 if ($query) {
 $result = mysqli_fetch_assoc($query1);
 if ($result !== null && isset($result['num_rows'])) {
@@ -271,8 +271,12 @@ KNN (Khaur News Networks)
 
 <?php 
 include('../../db/connection.php');
-//  $query = mysqli_query($conn, "SELECT * FROM news WHERE DATE(date) = CURDATE() OR DATE(date) = DATE_SUB(CURDATE(), INTERVAL 2 DAY);");
-$query = mysqli_query($conn, "select * from news WHERE category = 'Education' ");
+$query = mysqli_query($conn, "
+    SELECT news.* 
+    FROM news 
+    INNER JOIN news_category ON news.ID = news_category.news_id 
+    WHERE news_category.category_id = '58';
+");
 while($row= mysqli_fetch_array($query))
 {
 
@@ -288,7 +292,28 @@ while($row= mysqli_fetch_array($query))
 <p><img style="width: 100%;" src="../../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" ></p>
 <hr>
 <p></p>
-<h2><?php echo $row['category']?></h2>
+<?php
+$categoryQuery = "SELECT category.Category 
+            FROM news_category 
+            INNER JOIN category ON news_category.category_id = category.ID 
+            WHERE news_category.news_id = " . $row['ID'];
+$categoryResult = mysqli_query($conn, $categoryQuery);
+if ($categoryResult) 
+{
+if (mysqli_num_rows($categoryResult) > 0) {
+$categoryRow = mysqli_fetch_assoc($categoryResult);
+$category_name = $categoryRow['Category'];
+echo "<h5>Category: $category_name</h5>";
+} else 
+{
+echo "<h5>No category found</h5>";
+}
+} else 
+{
+echo "<td>Error: " . mysqli_error($conn) . "</td>";
+}
+?>
+<p><img style="width: 20%;" src="../../sub_images/<?php echo $row['subimage']; ?>"  alt="No Image to dispaly" ></p>
 <p><?php echo  ( $row['description'])?></p>
 <p>Address:</p>
 <blockquote class="blockquote">

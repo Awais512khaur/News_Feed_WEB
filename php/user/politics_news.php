@@ -265,7 +265,7 @@ if(mysqli_num_rows($query) > 0) {
 
   <div class="row g-5">
     <div class="col-md-8">
-        <?php    $query1 = mysqli_query($conn, "SELECT COUNT(*) AS num_rows FROM news WHERE category = 'Politics'");
+        <?php    $query1 = mysqli_query($conn, "SELECT COUNT(*) AS num_rows FROM news_category WHERE category_id = '54'");
          if ($query) {
              $result = mysqli_fetch_assoc($query1);
              if ($result !== null && isset($result['num_rows'])) {
@@ -283,7 +283,12 @@ if(mysqli_num_rows($query) > 0) {
        <?php 
        include('../../db/connection.php');
         //  $query = mysqli_query($conn, "SELECT * FROM news WHERE DATE(date) = CURDATE() OR DATE(date) = DATE_SUB(CURDATE(), INTERVAL 2 DAY);");
-         $query = mysqli_query($conn, "select * from news WHERE category = 'Politics' ");
+        $query = mysqli_query($conn, "
+        SELECT news.* 
+        FROM news 
+        INNER JOIN news_category ON news.ID = news_category.news_id 
+        WHERE news_category.category_id = '54';
+    ");
          while($row= mysqli_fetch_array($query))
          {
          
@@ -299,7 +304,28 @@ if(mysqli_num_rows($query) > 0) {
         <p><img style="width: 100%;" src="../../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" ></p>
         <hr>
         <p></p>
-        <h2><?php echo $row['category']?></h2>
+        <?php
+ $categoryQuery = "SELECT category.Category 
+                      FROM news_category 
+                      INNER JOIN category ON news_category.category_id = category.ID 
+                      WHERE news_category.news_id = " . $row['ID'];
+    $categoryResult = mysqli_query($conn, $categoryQuery);
+    if ($categoryResult) 
+    {
+        if (mysqli_num_rows($categoryResult) > 0) {
+            $categoryRow = mysqli_fetch_assoc($categoryResult);
+            $category_name = $categoryRow['Category'];
+            echo "<h3>Category: $category_name</h3>";
+        } else 
+        {
+            echo "<h1>No category found</h1>";
+        }
+    } else 
+    {
+        echo "<h1>Error: " . mysqli_error($conn) . "</h1>";
+    }
+
+?>
         <p><?php echo  ( $row['description'])?></p>
         <p>Address:</p>
         <blockquote class="blockquote">

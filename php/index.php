@@ -284,8 +284,28 @@ while($row= mysqli_fetch_array($query))
 <p class="blog-post-meta"><?php echo date("F jS, y" , strtotime($row['date']))?><span> </span><span style="color:skyblue" ><?php echo $row['Uploaded_by']?></span></p>
 <p><img style="width: 100%;" src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" ></p>
 <hr>
+<?php
+$categoryQuery = "SELECT category.Category 
+        FROM news_category 
+        INNER JOIN category ON news_category.category_id = category.ID 
+        WHERE news_category.news_id = " . $row['ID'];
+$categoryResult = mysqli_query($conn, $categoryQuery);
+if ($categoryResult) 
+{
+if (mysqli_num_rows($categoryResult) > 0) {
+$categoryRow = mysqli_fetch_assoc($categoryResult);
+$category_name = $categoryRow['Category'];
+echo "<h5>Category: $category_name</h5>";
+} else 
+{
+echo "<h1>No category found</h1>";
+}
+} else 
+{
+echo "<h1>Error: " . mysqli_error($conn) . "</h1>";
+}
+?>
 <p></p>
-<h2><?php echo $row['category']?></h2>
 <p><?php echo  substr( $row['description'], 0, 20)?>..</p>
 <a  href="readmore.php?edit=<?php echo $row['ID']?>">Read More</a><br><br>
 <hr>

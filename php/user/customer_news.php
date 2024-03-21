@@ -1,3 +1,7 @@
+<?php
+include('../../db/connection.php');
+include('../../sql/news_insert.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +16,11 @@
 include('../../include/bootstrap/customer_nav.php');
 ?>
 <body>
-<form method="post"  action="customer_news.php" id="customernews" enctype="multipart/form-data" style="margin-top: -79rem;" >
+<form method="post"  action="customer_news.php" id="customernews" enctype="multipart/form-data" style="margin-top: -90rem;" >
 <h1 >Add News</h1>
 <section class="vh-100 gradient-custom">
 <div class="container py-5 h-100">
-<div class="row justify-content-center align-items-center h-100" style="margin-top: -48rem;" >
+<div class="row justify-content-center align-items-center h-100" style="margin-top: -33rem;" >
 <div class="col-12 col-lg-9 col-xl-7">
 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
 <div class="card-body p-4 p-md-5">
@@ -77,12 +81,12 @@ include('../../include/bootstrap/customer_nav.php');
 </div>
 
 <div class="row">
-<div class="col-12">
+<div class="col-12" style="margin-left: 10px;" >
 
 <select class="select form-control-lg" name="category" >
 <option value="1" disabled>--Select Category--</option>
-<?php include('../../sql/categories_fetch.sql'); ?>
-</select>
+<?php include('../../sql/category_fetch.php'); ?>
+</select><br>
 <label class="form-label select-label">Category</label>
 
 </div>
@@ -114,9 +118,7 @@ include('../../include/bootstrap/customer_nav.php');
 </form>
 </body>
 </html>
-<?php
-include('../../db/connection.php');
-include('../../sql/news_insert.php');
-?>
+
+
 
 

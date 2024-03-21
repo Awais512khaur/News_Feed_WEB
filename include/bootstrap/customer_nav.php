@@ -734,7 +734,7 @@ header {
     <div class="container-fluid display-table">
         <div class="row display-table-row">
             <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
-                <div class="logo">
+            <div class="logo">
                     <a hef="home.html"><img src="../../images/logo.png" alt="merkery_logo" class="hidden-xs hidden-sm">
                         <img src="../../images/logo.png" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
                     </a>

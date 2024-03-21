@@ -41,7 +41,7 @@ include('../include/bootstrap/nav.php');
                 $id=$row['ID'];
                 $category=$row['Category'];
                 ?>
-                <option><?php echo $id, $category ?></option>
+                <option value="<?php echo $id; ?>"><?php echo $id . ' - ' . $category; ?></option>
             <?php
             }
             ?>
@@ -67,22 +67,36 @@ if(isset($_POST['submit'])) {
     $tmp_subimage = $_FILES['subimage']['tmp_name']; 
     $description = $_POST['description'];
     $date = $_POST['date'];
-    $category = $_POST['category'];
+    $category_id = $_POST['category'];
     $thumbnail = $_POST['thumbnail'];
     $uploaded = $_POST['uploaded'];
     move_uploaded_file($tmp_image, "../images/$image");
     move_uploaded_file($tmp_subimage, "../sub_images/$subimage"); 
-    $query = "INSERT INTO news (title, image, subimage, description, date, category, Address, Uploaded_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO news (title, image, subimage, description, date, Address, Uploaded_by) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, 'ssssssss', $title, $image, $subimage, $description, $date, $category, $thumbnail, $uploaded);
+    mysqli_stmt_bind_param($stmt, 'sssssss', $title, $image, $subimage, $description, $date, $thumbnail, $uploaded);
     $result = mysqli_stmt_execute($stmt);
     if($result) {
-        echo '<script>alert("News Added Successfully");</script>';
+        $news_id = mysqli_insert_id($conn);
+        $query_category = "INSERT INTO news_category (news_id, category_id) VALUES (?, ?)";
+        $stmt_category = mysqli_prepare($conn, $query_category);
+        mysqli_stmt_bind_param($stmt_category, 'ii', $news_id, $category_id);
+        $result_category = mysqli_stmt_execute($stmt_category);
+        
+        if($result_category) {
+            echo '<script>alert("News Added Successfully");</script>';
+        } else {
+            echo '<script>alert("Failed to add News to Category");</script>'; 
+        }
+        
+        mysqli_stmt_close($stmt_category);
     } else {
         echo '<script>alert("Failed to add News");</script>'; 
     }
+    
     mysqli_stmt_close($stmt);
 }
 ?>
+
 
 

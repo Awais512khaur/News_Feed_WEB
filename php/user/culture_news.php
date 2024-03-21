@@ -257,7 +257,7 @@ if(mysqli_num_rows($query) > 0) {
 
   <div class="row g-5">
     <div class="col-md-8">
-        <?php    $query1 = mysqli_query($conn, "SELECT COUNT(*) AS num_rows FROM news WHERE category = 'culture'");
+        <?php    $query1 = mysqli_query($conn, "SELECT COUNT(*) AS num_rows FROM news_category WHERE category_id = '67'");
          if ($query) {
              $result = mysqli_fetch_assoc($query1);
              if ($result !== null && isset($result['num_rows'])) {
@@ -275,7 +275,12 @@ if(mysqli_num_rows($query) > 0) {
        <?php 
        include('../../db/connection.php');
         //  $query = mysqli_query($conn, "SELECT * FROM news WHERE DATE(date) = CURDATE() OR DATE(date) = DATE_SUB(CURDATE(), INTERVAL 2 DAY);");
-         $query = mysqli_query($conn, "select * from news WHERE category = 'Culture' ");
+        $query = mysqli_query($conn, "
+        SELECT news.* 
+        FROM news 
+        INNER JOIN news_category ON news.ID = news_category.news_id 
+        WHERE news_category.category_id = '67';
+    ");
          while($row= mysqli_fetch_array($query))
          {
          

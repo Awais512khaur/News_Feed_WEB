@@ -1,13 +1,12 @@
 <?php
 include('../db/connection.php');
 $id = $_GET['del'];
-$query=mysqli_query($conn, "delete from news where id= '$id'");
-if($query)
+$query_news_category = mysqli_query($conn, "DELETE FROM news_category WHERE news_id = '$id'");
+$query_news = mysqli_query($conn, "DELETE FROM news WHERE id = '$id'");
+if ($query_news && $query_news_category) 
 {
-}
-else
+} else 
 {
-    echo "Try again";
 }
 ?>
 <!DOCTYPE html>

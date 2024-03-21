@@ -10,7 +10,6 @@ while ($row = mysqli_fetch_array($query))
     $subimage = $row['subimage'];
     $description = $row['description'];
     $date = $row['date'];
-    $category = $row['category'];
     $address = $row['Address'];
 
 }
@@ -232,8 +231,29 @@ while ($row = mysqli_fetch_array($query))
     <h2 style="font-family: robo;" class="display-5 link-body-emphasis mb-1">Ttile: <?php echo $row['title'] ?></h2>
     <p style="font-family: robolight;" class="blog-post-meta"><?php echo  date("F jS, y" , strtotime($row['date']))?><span> </span><span style="color:skyblue" ><?php echo $row['Uploaded_by']?></span></p>
     <p><img style="width: 50%;" src="../images/<?php echo $row['image']; ?>"  alt="No Image to dispaly" ></p>
-    <h2 style="font-size: 150%;" class="display-5 link-body-emphasis mb-1">Category: <?php echo $row['category'] ?></h2>
     <p><img style="width: 20%;" src="../sub_images/<?php echo $row['subimage']; ?>"  alt="No Image to dispaly" ></p>
+
+    <?php
+    $categoryQuery = "SELECT category.Category 
+                      FROM news_category 
+                      INNER JOIN category ON news_category.category_id = category.ID 
+                      WHERE news_category.news_id = " . $row['ID'];
+    $categoryResult = mysqli_query($conn, $categoryQuery);
+    if ($categoryResult) 
+    {
+        if (mysqli_num_rows($categoryResult) > 0) {
+            $categoryRow = mysqli_fetch_assoc($categoryResult);
+            $category_name = $categoryRow['Category'];
+            echo "<h3>Category: $category_name</h3>";
+        } else 
+        {
+            echo "<h1>No category found</h1>";
+        }
+    } else 
+    {
+        echo "<h1>Error: " . mysqli_error($conn) . "</h1>";
+    }
+    ?>
     <h1 style="font-size: 150%;">Description:</h1>
     <p style="margin-right: 10rem;" ><?php echo  ( $row['description'])?></p>
     <h6>Address:</h6>
