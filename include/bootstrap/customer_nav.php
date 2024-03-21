@@ -709,7 +709,8 @@ header {
     padding: 16px 0 17px;
     width: 100%;
 }
-}    </style>
+}    
+    </style>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
@@ -733,14 +734,14 @@ header {
     <div class="container-fluid display-table">
         <div class="row display-table-row">
             <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
-            <div class="logo">
+                <div class="logo">
                     <a hef="home.html"><img src="../../images/logo.png" alt="merkery_logo" class="hidden-xs hidden-sm">
                         <img src="../../images/logo.png" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
                     </a>
                 </div>
                 <div class="navi">
                     <ul>
-                        <li ><a href="../../php/user/user_dash.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+                        <li><a href="../../php/user/user_dash.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
                         <li><a href="../../php/user/customer_news.php"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Add News</span></a></li>
                         <li><a href="../../php/user/todaynews.php"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">All News</span></a></li>
                         <li><a href="../../php/internatioal.php"><i class="bi bi-globe" aria-hidden="true"></i><span class="hidden-xs hidden-sm">International News</span></a></li>
@@ -806,4 +807,3 @@ header {
 	</script>
 </body>
 </html>
-<?php

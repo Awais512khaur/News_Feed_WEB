@@ -394,7 +394,7 @@ if(mysqli_num_rows($query) > 0) {
       
       ?>
      <tr>
-        <td><?php echo $row['No']?></td>
+        <td><?php echo $row['ID']?></td>
         <td><?php echo date("F jS, y" , strtotime($row['Date']))?></td>
         <td><?php echo $row['Sehr']?></td>
         <td><?php echo $row['Iftar']?></td>

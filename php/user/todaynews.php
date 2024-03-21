@@ -20,15 +20,15 @@ include('../../db/connection.php');
  <table class="table table-bordered" style="margin-left: 32rem;width: 78rem;margin-top: 40px;">
  <thead class="thead-dark" >
  <tr>
-   <th scope="col" style="color: white; background-color:#343a40;">ID</th>
+   <th scope="col" style="color: white; background-color:#343a40;" >ID</th>
    <th scope="col" style="color: white; background-color:#343a40;" >Title</th>
    <th scope="col" style="color: white; background-color:#343a40;" >Image</th>
    <th scope="col" style="color: white; background-color:#343a40;" >Sub Image</th>
-   <th scope="col"style="color: white; background-color:#343a40;" >Description</th>
-   <th scope="col"style="color: white; background-color:#343a40;" >Date</th>
-   <th scope="col"style="color: white; background-color:#343a40;" >category</th>
-   <th scope="col"style="color: white; background-color:#343a40;" >Address</th>
-   <th scope="col"style="color: white; background-color:#343a40;" >Uploaded</th>
+   <th scope="col" style="color: white; background-color:#343a40;" >Description</th>
+   <th scope="col" style="color: white; background-color:#343a40;" >Date</th>
+   <th scope="col" style="color: white; background-color:#343a40;" >category</th>
+   <th scope="col" style="color: white; background-color:#343a40;" >Address</th>
+   <th scope="col" style="color: white; background-color:#343a40;" >Uploaded</th>
  </tr>
    <?php
    $query = mysqli_query($conn, "SELECT * FROM news ");
