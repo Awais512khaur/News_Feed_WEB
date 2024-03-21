@@ -688,7 +688,6 @@ header {
 }
     .user-dashboard .header-rightside {
         display: inline-block;
-        float: left;
         width: 100%;
 }
     .user-dashboard .header-rightside .header-top img {
