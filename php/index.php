@@ -364,7 +364,7 @@ if(mysqli_num_rows($query) > 0) {
 <ul class="list-unstyled">
 <li>
 <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="readmore.php?edit=<?php echo $row['ID']?>">
-<img style="width:100% ; height:96px " src="../images/default.webp"  alt="No Image to display"  >
+<img style="width:100% ; height:96px " src="../images/default.webp"    >
 <div class="col-lg-8">
 <h6 class="mb-0">No Recent News</h6>
 <?php $today_date = date("F jS, Y"); ?>
