@@ -96,11 +96,7 @@ include('../../include/bootstrap/customer_nav.php');
 
 <label class="form-label" for="phoneNumber"></label>
 </div>
-<div class="form-outline">
-
-<label class="form-label" for="phoneNumber"></label>
-</div>
-<div class="form-outline">
+<div class="form-outline " style="margin-left: -14px;" >
 <input type="text" id="uploaded" name="uploaded" class="form-control form-control-lg" />
 <label class="form-label" for="phoneNumber">Uploaded by</label>
 </div>
